@@ -1,0 +1,46 @@
+[project]
+name = "tribunal"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Mrunal Nirajkumar Shah", email = "mrunalnshah@protonmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "fastapi>=0.162.0",
+    "html5lib>=1.1",
+    "httpx>=0.28.1",
+    "openai>=3.42.0",
+    "pydantic-settings>=2.16.2",
+    "python-dotenv>=1.2.4",
+    "qdrant-client[fastembed]>=1.20.0",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+tribunal = "tribunal.cli:main"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["tribunal"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]

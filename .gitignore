@@ -1,0 +1,11 @@
+/temp_docs
+
+.venv/
+__pycache__/
+.env
+.cache/
+data/raw/
+data/cache/
+data/review.csv
+data/records.db
+frontend/laws.json

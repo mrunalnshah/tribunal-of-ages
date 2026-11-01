@@ -1,2 +1,7 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Line endings: LF everywhere, so a Windows checkout matches Linux, Docker and CI. Git for
+# Windows otherwise converts text files to CRLF, which shells and some pre-commit hooks dislike.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ico binary
+*.onnx binary
