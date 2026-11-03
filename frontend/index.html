@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Tribunal of Ages</title>
-  <meta name="description" content="Bring your pettiest grievance before 4,000 years of law. Real law codes, myths and stories, and every verdict cites its law.">
+  <meta name="description" content="Sue anyone, over anything, before 4,000 years of law. Every verdict cites a real law, myth or story.">
   <script>
     // Before the page paints, use the skin this visitor chose last time. It stays on this device.
     try { const skin = localStorage.getItem("tribunal-skin"); if (skin) document.documentElement.dataset.skin = skin; } catch {}
@@ -32,88 +32,90 @@
 
   <main id="main">
     <section class="room" id="court" aria-labelledby="court-title">
-      <div class="hero">
-        <h1 id="court-title">Bring your pettiest grievance before 4,000 years of law</h1>
-        <p class="lede">Real law codes, myths and stories. Every verdict cites the law that decided it.</p>
-        <a class="tally" id="tally" href="#system" hidden></a>
-        <button type="button" class="teaser" id="teaser" hidden></button>
-      </div>
-
-      <form class="card filing" id="case-form" novalidate>
-        <fieldset class="public-part">
-          <legend class="part"><span aria-hidden="true">📜</span> For the court, and the public record</legend>
-          <label class="label" for="crime">Your grievance</label>
-          <textarea id="crime" maxlength="5000" rows="4" required placeholder="My roommate ate my leftover pizza from the fridge. Even the crusts."></textarea>
-          <p class="hint"><span id="crime-count" aria-live="polite">0 of 600 characters.</span> Leave names out: say “my roommate”, not “Dave”. The court calls people the Plaintiff and the Accused.</p>
+      <div class="stage petition" id="petition">
+        <div class="hero">
+          <h1 id="court-title">Sue anyone. Over anything.</h1>
+          <p class="lede">4,000 years of law. Zero lawyers. Every verdict cites a real law, myth or story.</p>
+          <a class="tally" id="tally" href="#system" hidden></a>
+        </div>
+        <form class="card filing" id="case-form" novalidate>
+          <label class="sr-only" for="crime">Your grievance</label>
+          <div class="crime-box">
+            <textarea id="crime" maxlength="5000" rows="3" required placeholder="My roommate ate my pizza, then denied it with sauce on his face."></textarea>
+            <span class="counter" id="crime-count" aria-live="polite"></span>
+          </div>
           <fieldset class="outrage">
-            <legend class="label">How outraged are you?</legend>
+            <legend class="sr-only">How outraged are you?</legend>
             <div class="segments" id="outrage"></div>
           </fieldset>
           <fieldset>
-            <legend class="label">Judge me by</legend>
+            <legend class="sr-only">Judge me by</legend>
             <div class="chips" id="themes"></div>
             <p class="hint" id="themes-status"></p>
           </fieldset>
-          <label class="label" for="jurisdiction">One realm only? <span class="hint">Optional</span></label>
-          <select id="jurisdiction"><option value="any">Any realm</option></select>
-        </fieldset>
+          <details class="extras">
+            <summary>More: names, photo, publishing</summary>
+            <div class="extras-grid">
+              <label for="accused">The accused</label>
+              <input id="accused" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Up to three, like: Dave, Steve">
+              <label for="plaintiff">You</label>
+              <input id="plaintiff" type="text" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Priya">
+              <label for="decree-photo">Photo</label>
+              <input id="decree-photo" type="file" accept="image/*">
+              <p class="hint" id="decree-photo-status" role="status"></p>
+              <button type="button" class="quiet" id="decree-photo-remove" hidden>Remove the photo</button>
+              <label for="jurisdiction">Realm</label>
+              <select id="jurisdiction"><option value="any">Any realm</option></select>
+            </div>
+            <label class="publish"><input type="checkbox" id="consent"> <span>Publish my grievance and verdict in the public record</span></label>
+            <p class="hint">Names and the photo never leave this device. Keep names out of the grievance itself.</p>
+          </details>
+          <div class="actions">
+            <button type="submit" class="primary" id="file"><span class="gavel" aria-hidden="true">⚖</span> Sue them</button>
+            <button type="button" class="quiet" id="archive-button">Read a famous case</button>
+          </div>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
 
-        <fieldset class="private-part">
-          <legend class="part"><span aria-hidden="true">🔒</span> Only on this device: never sent, never stored</legend>
-          <p class="hint">These make your verdict and your decree personal. They never leave this browser: not to the court, not to the public record, not to analytics.</p>
-          <label class="label" for="accused">The accused <span class="hint">Up to three names, separated by commas</span></label>
-          <input id="accused" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Dave">
-          <label class="label" for="plaintiff">You, the plaintiff <span class="hint">Optional</span></label>
-          <input id="plaintiff" type="text" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Priya">
-          <label class="label" for="decree-photo">A photo for the decree <span class="hint">Optional</span></label>
-          <input id="decree-photo" type="file" accept="image/*">
-          <p class="hint" id="decree-photo-status" role="status"></p>
-          <button type="button" class="quiet" id="decree-photo-remove" hidden>Remove the photo</button>
-        </fieldset>
-
-        <label class="consent">
-          <input type="checkbox" id="consent">
-          <span>I understand that the court keeps what I write, and publishes my grievance and its verdict in the public record, word for word, with the law that decided it. The names and photo I added above stay on this device.</span>
-        </label>
-        <div class="actions">
-          <button type="submit" class="primary" id="file"><span class="gavel" aria-hidden="true">⚖</span> File your case</button>
-          <button type="button" class="quiet" id="archive-button">Or read a famous case</button>
-        </div>
-      </form>
-
-      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <div class="stage hearing" id="hearing" hidden>
+        <div class="gavel-big" aria-hidden="true">⚖</div>
+        <p class="joke" id="hearing-joke" role="status" aria-live="polite"></p>
+      </div>
 
       <article class="card verdict" id="verdict" hidden tabindex="-1" aria-labelledby="v-title">
         <p class="archive-note" id="v-archive" hidden></p>
         <p class="stamp" id="v-stamp" aria-hidden="true">Guilty</p>
         <h2 id="v-title"></h2>
-        <p class="private-note" id="v-private" hidden>On your screen, this verdict uses the names you kept on this device. The public record says “the Accused”.</p>
-        <p class="charge"><span class="label">The charge</span> <span id="v-charge"></span></p>
-        <p class="sentence"><span class="label">The sentence</span> <span id="v-sentence"></span></p>
-        <blockquote class="law"><p id="v-law-text"></p><footer id="v-law-meta"></footer></blockquote>
+        <p class="charge" id="v-charge"></p>
+        <p class="sentence" id="v-sentence"></p>
         <p class="remarks" id="v-remarks"></p>
-        <p class="history" id="v-note"></p>
+        <details class="law-box">
+          <summary id="v-law-cite">The law</summary>
+          <blockquote class="law"><p id="v-law-text"></p><footer id="v-law-meta"></footer></blockquote>
+          <p class="history" id="v-note"></p>
+        </details>
+        <p class="private-note" id="v-private" hidden></p>
+        <p class="verdict-note" id="v-notes" hidden></p>
         <div class="record-status" id="v-record" hidden></div>
-        <div class="feedback" id="feedback" role="group" aria-label="Was this verdict fair?">
-          <span class="hint">Was it fair?</span>
-          <button type="button" data-value="1" aria-label="Fair">👍</button>
-          <button type="button" data-value="-1" aria-label="Unfair">👎</button>
-        </div>
-        <details class="decree" id="decree" hidden>
-          <summary>Make it official: export the decree as an image</summary>
-          <div class="decree-form">
-            <p class="hint">It uses the names and photo you kept on this device, above. They’re drawn into the image here and sent nowhere.</p>
-            <label for="decree-theme">Design</label>
+        <div class="toolbar">
+          <div class="decree" id="decree" hidden>
+            <label class="sr-only" for="decree-theme">Decree design</label>
             <select id="decree-theme"></select>
-          </div>
-          <canvas id="decree-canvas" width="1080" height="1350" role="img" aria-label="The decree"></canvas>
-          <div class="actions">
-            <button type="button" class="primary" id="decree-download">Download the image</button>
+            <button type="button" id="decree-download"><span aria-hidden="true">⬇</span> Decree</button>
             <button type="button" id="decree-share" hidden>Share</button>
           </div>
-        </details>
-        <button type="button" class="quiet" id="archive-next" hidden>Show another famous case</button>
-        <p class="disclaimer">For entertainment only. Not legal advice.</p>
+          <button type="button" id="copy-verdict">Copy</button>
+          <div class="feedback" id="feedback" role="group" aria-label="Was this verdict fair?">
+            <button type="button" data-value="1" aria-label="Fair">👍</button>
+            <button type="button" data-value="-1" aria-label="Unfair">👎</button>
+          </div>
+        </div>
+        <canvas id="decree-canvas" width="1080" height="1350" hidden role="img" aria-label="The decree"></canvas>
+        <div class="actions next">
+          <button type="button" class="primary" id="new-petition">New petition</button>
+          <button type="button" class="quiet" id="archive-next" hidden>Another famous case</button>
+        </div>
       </article>
     </section>
 
@@ -184,7 +186,10 @@
   </main>
 
   <footer class="colophon">
-    <p>What’s public: your grievance and its verdict, word for word, with the law that decided it, once you tick the box. What’s kept privately: every grievance you file, even ones that aren’t judged or published; your removal link deletes yours. What’s never kept: the names and photo you add, which never leave your device. A case that contains contact details or a link is judged but not published, reports hide a case until it’s reviewed, and you can remove your own. Visits are counted anonymously. An idle court can take a minute to wake.</p>
+    <details>
+      <summary>For entertainment only · What we keep</summary>
+      <p>We keep what you write, privately; your removal link deletes a published case. Names and the photo never leave this device. A case is published only if you tick Publish, and never with contact details or links. Visits are counted anonymously. A sleepy court can take a minute to wake.</p>
+    </details>
   </footer>
 
   <script src="config.js"></script>

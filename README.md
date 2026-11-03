@@ -106,7 +106,7 @@ Every figure is measured, with its method and date in [docs/SCORECARD.md](docs/S
 
 | What | Result | How it's measured |
 |---|---|---|
-| Corpus | 552 laws from 72 sources, in 4 themes | `uv run tribunal check` |
+| Corpus | 575 laws from 78 sources, in 4 themes | `uv run tribunal check` |
 | Retrieval, Hit@5 | 0.76 dense only, 0.80 with hybrid search and reranking | `uv run tribunal eval` |
 | Retrieval, MRR | 0.75 with reranking (0.66 dense only) | `uv run tribunal eval` |
 | Verdicts | 12 of 14 cases pass, including contempt and declines | `uv run tribunal eval --verdicts` |

@@ -1,16 +1,16 @@
-/* Archive: parchment, ink and sealing wax. Every color, font, border and texture the site
+/* Archive: ivory, slate ink and court crimson. Every color, font, border and texture the site
    uses comes from these tokens, so this file is the whole look. Copy it to make a skin. */
 :root[data-skin="archive"] {
   color-scheme: light;
-  --paper: #f3e8cf;
-  --surface: #fbf4e2;
-  --well: #f6ecd4;
-  --ink: #2b1d12;
-  --muted: #6b5236;
-  --accent: #8f1d1d;
-  --accent-ink: #fbf4e2;
-  --line: #c9b184;
-  --focus: #1f4d8f;
+  --paper: #f5efe3;
+  --surface: #fffcf6;
+  --well: #f7f0e2;
+  --ink: #1d2433;
+  --muted: #566073;
+  --accent: #b4232c;
+  --accent-ink: #fffcf6;
+  --line: #ddd0b6;
+  --focus: #2457d6;
   --line-width: 1px;
   --radius: 4px;
   --radius-big: 8px;
@@ -19,33 +19,33 @@
   --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --display-weight: 600;
   --display-spacing: -0.01em;
-  --texture: radial-gradient(ellipse at 15% 0%, rgb(255 255 255 / 55%), transparent 55%),
-    radial-gradient(ellipse at 90% 100%, rgb(120 80 30 / 14%), transparent 55%);
-  --stamp: #8f1d1d;
+  --texture: radial-gradient(ellipse at 12% -10%, rgb(255 255 255 / 70%), transparent 55%),
+    radial-gradient(ellipse at 95% 110%, rgb(184 128 26 / 12%), transparent 55%);
+  --stamp: #b4232c;
   --tilt: -4deg;
-  --series-a: #8f1d1d;
-  --series-b: #b07d2b;
-  --good: #2f7d32;
-  --warn: #b7791f;
+  --series-a: #b4232c;
+  --series-b: #b8801a;
+  --good: #1f7a4a;
+  --warn: #9a6400;
 }
 @media (prefers-color-scheme: dark) {
   :root[data-skin="archive"] {
     color-scheme: dark;
-    --paper: #1e1812;
-    --surface: #2a2219;
-    --well: #241d15;
-    --ink: #f1e6cf;
-    --muted: #c9b48f;
-    --accent: #e0745c;
-    --accent-ink: #1e1812;
-    --line: #5a4a35;
+    --paper: #12151c;
+    --surface: #1b1f29;
+    --well: #171b24;
+    --ink: #f3ede2;
+    --muted: #a9b0bf;
+    --accent: #ff7a6b;
+    --accent-ink: #12151c;
+    --line: #2f3544;
     --focus: #8fb4ff;
     --shadow: 0 18px 40px -24px rgb(0 0 0 / 70%);
-    --texture: radial-gradient(ellipse at 15% 0%, rgb(255 230 180 / 7%), transparent 55%);
-    --stamp: #e0745c;
-    --series-a: #e0745c;
-    --series-b: #e3b55e;
-    --good: #7cc47f;
-    --warn: #e3b55e;
+    --texture: radial-gradient(ellipse at 12% -10%, rgb(255 210 160 / 7%), transparent 55%);
+    --stamp: #ff7a6b;
+    --series-a: #ff7a6b;
+    --series-b: #e8b964;
+    --good: #6fcf8e;
+    --warn: #e8b964;
   }
 }

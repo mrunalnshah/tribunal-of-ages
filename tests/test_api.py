@@ -86,14 +86,14 @@ def test_spent_provider_quota_says_when_the_court_reopens():
     assert "about 12 minutes" in response.json()["detail"]
 
 
-def test_readiness_reports_the_index():
-    with client() as api:
-        assert api.get("/readyz").json() == {"ok": True, "laws": 3}
-
-
 def test_rate_limit_answers_429_with_retry_after():
     with client(requests_per_minute=1) as api:
         api.post("/api/v1/verdicts", json=PIZZA)
         second = api.post("/api/v1/verdicts", json={**PIZZA, "crime": "He ate my fries too!"})
     assert second.status_code == 429
     assert int(second.headers["retry-after"]) > 0
+
+
+def test_readiness_reports_the_index():
+    with client() as api:
+        assert api.get("/readyz").json() == {"ok": True, "laws": 3}

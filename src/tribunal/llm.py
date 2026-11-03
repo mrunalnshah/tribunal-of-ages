@@ -16,7 +16,7 @@ from typing import Any, Literal
 import openai
 from pydantic import BaseModel
 
-from tribunal.telemetry import OpenAI
+from tribunal.telemetry import OpenAI  # the plain OpenAI client, or a traced one
 
 log = logging.getLogger(__name__)
 Tier = Literal["fast", "smart"]

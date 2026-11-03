@@ -49,7 +49,7 @@ class Feedback(BaseModel):
 
 class CaseRequest(Case):
     crime: str = Field(min_length=10, max_length=KEPT_MAX)  # over CRIME_MAX: kept, never judged
-    record: bool = True  # health checks and load tests send False; the website never does
+    record: bool = True  # False: judged, never published (the website, unless Publish is ticked)
     consent: bool = False  # the visitor ticked: "my grievance and its verdict will be public"
 
 

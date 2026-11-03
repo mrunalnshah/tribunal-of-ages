@@ -8,6 +8,7 @@ vectors are built, stored, fused and re-scored is this module's secret, so it ca
 import time
 import uuid
 from dataclasses import dataclass
+from pathlib import Path
 
 from fastembed import SparseTextEmbedding, TextEmbedding
 from fastembed.rerank.cross_encoder import TextCrossEncoder
@@ -18,7 +19,6 @@ from tribunal.models import Law
 DENSE_MODEL = "BAAI/bge-small-en-v1.5"
 SPARSE_MODEL = "Qdrant/bm25"
 RERANK_MODEL = "Xenova/ms-marco-MiniLM-L-6-v2"
-
 ID_NAMESPACE = uuid.UUID("5b2f6a52-4c1e-4f8a-9d3b-7a1c0e9f2d44")
 
 
@@ -32,13 +32,34 @@ class Hit:
     score: float  # higher is more relevant
 
 
+def container_cpus(cgroup: Path = Path("/sys/fs/cgroup")) -> int | None:
+    """The CPUs this container may use, from its cgroup quota, or None without a quota.
+
+    The models size their thread pools to every core on the machine. Inside a 2-CPU quota,
+    those threads are paused in turns, and every request slows down, even the trivial ones.
+    """
+    try:
+        quota, period = (cgroup / "cpu.max").read_text().split()  # cgroup v2: "200000 100000"
+    except (OSError, ValueError):
+        try:  # cgroup v1, on older hosts
+            quota = (cgroup / "cpu" / "cpu.cfs_quota_us").read_text().strip()
+            period = (cgroup / "cpu" / "cpu.cfs_period_us").read_text().strip()
+        except OSError:
+            return None
+    try:
+        return max(1, int(quota) // int(period)) if int(quota) > 0 else None
+    except ValueError:  # "max": no quota at all
+        return None
+
+
 class Models:
     """The three local ONNX models. Loading takes seconds and real memory, so do it once."""
 
-    def __init__(self, cache_dir: str):
-        self.dense = TextEmbedding(DENSE_MODEL, cache_dir=cache_dir)
-        self.sparse = SparseTextEmbedding(SPARSE_MODEL, cache_dir=cache_dir)
-        self.reranker = TextCrossEncoder(RERANK_MODEL, cache_dir=cache_dir)
+    def __init__(self, cache_dir: str, threads: int | None = None):
+        threads = threads or container_cpus()  # None outside a container: every core
+        self.dense = TextEmbedding(DENSE_MODEL, cache_dir=cache_dir, threads=threads)
+        self.sparse = SparseTextEmbedding(SPARSE_MODEL, cache_dir=cache_dir, threads=threads)
+        self.reranker = TextCrossEncoder(RERANK_MODEL, cache_dir=cache_dir, threads=threads)
 
 
 class LawIndex:

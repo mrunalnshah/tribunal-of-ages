@@ -1,5 +1,5 @@
-"""A load test of the API, for docs/SCORECARD.md. Run it against your local stack only:
-the free Space is shared hardware, and load-testing it would abuse a free service.
+"""A load test of the API, for docs/SCORECARD.md. Run it against your local stack only,
+never production, where it would spend your free grant and your Azure credit.
 
     DAILY_BUDGET=20 VISITOR_DAILY_LIMIT=1000 docker compose --profile full up -d --build
     uv run locust -f scripts/loadtest.py --host http://localhost:8000 \\

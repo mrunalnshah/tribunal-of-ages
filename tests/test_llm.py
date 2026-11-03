@@ -1,4 +1,4 @@
-import httpx2
+import httpx2  # the HTTP library the OpenAI SDK uses since version 3
 import openai
 import pytest
 from pydantic import BaseModel

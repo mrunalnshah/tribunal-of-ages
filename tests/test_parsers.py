@@ -31,6 +31,12 @@ def test_blocks_split_line_breaks_and_drop_editor_notes():
     ]
 
 
+def test_hammurabi_keeps_numbered_laws_in_order():
+    laws = parse_hammurabi(HAMMURABI)
+    assert [law["id"] for law in laws] == ["1", "2", "229"]
+    assert laws[1]["text"] == "If any one break a jar, he shall pay for the jar."
+
+
 def test_hammurabi_skips_numbers_from_the_sites_menu():
     menu = "<p><a>Ancient<br>4000bce - 399</a> <a>Medieval<br>400 - 1399</a></p>"
     laws = parse_hammurabi(HAMMURABI.replace("<body>", "<body>" + menu))

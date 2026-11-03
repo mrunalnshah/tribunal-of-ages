@@ -18,8 +18,8 @@ from tribunal.search import Hit, LawIndex, SearchUnavailable
 from tribunal.telemetry import observe, trace_id
 
 ANALYSIS_PROMPT = "analysis_v1"
-VERDICT_PROMPT = "verdict_v1"
-CONTEMPT_PROMPT = "contempt_v1"
+VERDICT_PROMPT = "verdict_v2"
+CONTEMPT_PROMPT = "contempt_v2"
 CONTEMPT_QUERY = (
     "If any one bring before the judges a case that is no case, and waste the time of the court"
 )
@@ -82,7 +82,7 @@ class Tribunal:
             kind=kind,
             verdict=draft,
             law=CitedLaw(**law.model_dump()),
-            meta={"prompt": VERDICT_PROMPT, "trace_id": trace_id() or ""},
+            meta={"prompt": prompt, "trace_id": trace_id() or "", **usage.meta()},
         )
 
     @observe()

@@ -5,13 +5,12 @@ long form.
 
 ## The public record
 
-Every verdict is published in the public record, word for word, with the law that decided it.
-The form says so, and won't send a case until the visitor ticks a box confirming they
-understand; the API refuses a case for the record without that consent. The form has two
-parts, labelled as such: the grievance, which goes to the court and the record, and the
-accused's names, the visitor's own name and a photo, which stay on the device (see Decrees).
-The grievance is written without names, and the form refuses one that contains a name typed
-in the private part. Three more safeguards apply:
+A verdict is published in the public record, word for word, with the law that decided it, only
+when the visitor ticks Publish, which every new case starts without. Unticked, the case is judged
+and kept in the private history (below), but never published. The API refuses a case for the
+record without that consent, so no other client can skip it. The accused's names, the visitor's
+own name and a photo stay on the device (see Decrees). The grievance is written without names,
+and the form refuses one that contains a name typed under More. Three more safeguards apply:
 
 - A case that contains an email address, a phone number or a link is judged but not
   published, and the visitor is told why.

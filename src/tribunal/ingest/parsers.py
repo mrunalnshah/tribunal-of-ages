@@ -10,11 +10,10 @@ import re
 
 from bs4 import BeautifulSoup
 
-LAST_LAW = 282  # the Code's last law: a bigger number is something else on the page
-
 HTML_PARSER = "html5lib"  # parses like a browser, so unclosed <p> tags on old pages are fine
 BLOCK_TAGS = ["p", "h1", "h2", "h3", "h4", "h5", "li", "td", "div", "blockquote"]
 LINE_BREAK = "\u2029"  # stands in for <br>; this character never appears in the texts
+LAST_LAW = 282  # the Code's last law: a bigger number is something else on the page
 NUMBERED = re.compile(r"^(\d{1,3})\.?\s+(.+)$")  # "8. If any one..." and the odd "229 If..."
 TITLE = re.compile(r"^Title ([IVXL]+)\b")
 EDITORIAL = re.compile(r"\s*\[[^\]]*\]")  # the web editors' notes, e.g. "[ An eye for an eye ]"
@@ -37,7 +36,8 @@ def blocks(html: bytes | str) -> list[str]:
 
 
 def parse_hammurabi(html: bytes | str) -> list[dict]:
-    """Laws numbered 1-282. Numbers must increase, which skips stray numbers in the footer."""
+    """Laws numbered 1-282, in increasing order. Anything else on the page that starts with a
+    number is skipped: the footer's address, or the site menu's "Medieval 400 - 1399"."""
     laws: list[dict] = []
     last = 0
     for text in blocks(html):

@@ -1,13 +1,43 @@
-// The court: the form, the verdict, and what happened to the case in the public record. It
-// also routes between the two rooms: #court, #library, #library/verdicts, #law/<id>,
+// The court, one screen at a time: the petition, the hearing while the court thinks, then the
+// verdict. It also routes between the rooms: #court, #library, #library/verdicts, #law/<id>,
 // #case/<id>, and #remove/<id>/<key> for the private removal link.
 const LABELS = [["🙄", "Miffed"], ["😤", "Peeved"], ["😡", "Seething"], ["🔥", "Vengeful"], ["☠️", "Blood feud"]];
+// What the court mutters while it thinks. Dark, never cruel: the joke is always on the court.
+const HEARING = [
+  "Waking a judge who died in 1754 BC…",
+  "Hammurabi is squinting at your evidence…",
+  "Searching {laws} laws for one that fits your pain…",
+  "The jury is out. Permanently. They died centuries ago.",
+  "Converting shekels into pizzas…",
+  "A Spartan is reading your case and judging your snacks…",
+  "Checking the scrolls. Two of them are just old receipts.",
+  "Asking a Viking whether this counts as a blood feud…",
+  "Confirming that banishment is still on the menu. It is.",
+  "The bailiff is warming up his gavel arm…",
+];
 const $ = (id) => document.getElementById(id);
 let catalog = null;
 let traceId = "";
 let archive = null; // the Hall of Fame, fetched the first time it's needed
 let lastFamous = -1;
 let live = null; // the visitor's own verdict, while it's on screen: their private names update it
+let jokes = null; // the hearing's timer
+let onScreen = null; // whichever ruling the verdict card shows: the visitor's, or one from the archive
+
+// One stage of the court at a time, so the page stays one screen.
+function stage(name) {
+  for (const id of ["petition", "hearing", "verdict"]) $(id).hidden = id !== name;
+  clearInterval(jokes);
+  if (name === "hearing") {
+    const laws = catalog ? catalog.themes.flatMap((t) => t.jurisdictions).reduce((sum, j) => sum + j.laws, 0) : 0;
+    const lines = HEARING.filter((line) => laws || !line.includes("{laws}")).map((line) => line.replace("{laws}", laws.toLocaleString()));
+    let next = Math.floor(Math.random() * lines.length);
+    const say = () => { $("hearing-joke").textContent = lines[next++ % lines.length]; };
+    say();
+    jokes = setInterval(say, 2200);
+  }
+  window.scrollTo(0, 0);
+}
 
 function make(tag, text = "", className = "") {
   const node = document.createElement(tag); // text only, never HTML: model output is untrusted
@@ -29,9 +59,7 @@ $("outrage").append(...LABELS.flatMap(([face, word], i) => {
 $("crime").addEventListener("input", () => {
   const length = $("crime").value.length;
   const over = length > 600; // the court reads 600 characters; a longer grievance is kept, unjudged
-  $("crime-count").textContent = over
-    ? `${length} characters: the court reads 600. Trim it to have it judged; filed as it is, it’s kept but not judged.`
-    : `${length} of 600 characters.`;
+  $("crime-count").textContent = over ? `${length}/600: too long to judge` : length > 450 ? `${length}/600` : "";
   $("crime-count").classList.toggle("over", over);
 });
 for (const id of ["accused", "plaintiff"]) {
@@ -42,7 +70,7 @@ for (const id of ["accused", "plaintiff"]) {
 
 // Themes and jurisdictions come from the API, so new ones appear without editing this file.
 async function loadCatalog() {
-  $("themes-status").textContent = "Opening the court’s library…";
+  $("themes-status").textContent = "Unlocking the library…";
   try {
     catalog = await request("GET", "/api/v1/catalog");
     renderThemes();
@@ -82,85 +110,83 @@ function renderJurisdictions() {
 
 $("case-form").addEventListener("submit", async (event) => {
   event.preventDefault();
-  if (!catalog) return setStatus("The court’s library is still loading. Try again in a moment.");
+  if (!catalog) return setStatus("The library is still unlocking. Try again in a moment.");
   const themes = chosenThemes();
-  if (!themes.length) return setStatus("Pick at least one kind of law.");
+  if (!themes.length) return setStatus("Pick at least one kind of law. Anarchy is not on the menu.");
   const crime = $("crime").value.trim();
   if (crime.length < 10) {
     $("crime").focus();
-    return setStatus("Tell the court a little more: at least 10 characters.");
+    return setStatus("Give the court more to work with: ten characters, minimum.");
   }
   const named = [...decree.people(), decree.plaintiff()].find((name) => mentions(crime, name));
   if (named) {
     $("crime").focus();
-    return setStatus(`Your grievance mentions “${named}”. Take the name out: the court says the Plaintiff and the Accused, and the names you typed below stay on this device.`);
-  }
-  if (!$("consent").checked) {
-    $("consent").focus();
-    return setStatus("Tick the box first, so you know what goes public: your grievance and its verdict.");
+    return setStatus(`Take “${named}” out of the grievance. The court only says the Plaintiff and the Accused.`);
   }
   const outrage = Number(document.querySelector('input[name="outrage"]:checked').value);
-  // The private part of the form (names, photo) is never added here: it never leaves the device.
-  const body = { crime, outrage, themes, jurisdiction: $("jurisdiction").value, consent: true };
+  const publish = $("consent").checked; // unticked: judged, kept privately, never published
+  // The names and the photo are never added here: they never leave the device.
+  const body = { crime, outrage, themes, jurisdiction: $("jurisdiction").value, record: publish, consent: publish };
   const file = $("file");
   file.disabled = true; // one case at a time: a double click would cost two verdicts
-  file.classList.add("working");
-  $("verdict").hidden = true;
-  setStatus("The court is consulting the clay tablets…");
+  setStatus("");
+  stage("hearing");
   // Only the visitor's choices are counted, never what they wrote.
-  analytics.track("case_submitted", { outrage, themes, jurisdiction: body.jurisdiction, length: crime.length });
-  const slow = setTimeout(() => setStatus("Waking the court. The first case after a nap can take a minute…"), 6000);
+  analytics.track("case_submitted", { outrage, themes, jurisdiction: body.jurisdiction, length: crime.length, publish });
+  const slow = setTimeout(() => { $("hearing-joke").textContent = "Waking the court. It naps like a cat: long, deep and smug…"; }, 7000);
   try {
     const answer = await request("POST", "/api/v1/verdicts", body);
-    render(answer);
-    showRecordStatus(answer);
     system.load(true); // the chip and tally count this case
     $("consent").checked = false; // every case asks again
-    const notes = answer.kind === "declined" ? [answer.message] : [];
+    const notes = [];
     if (answer.kind === "verdict") analytics.track("verdict_shown", lawDetails(answer.law));
     else if (answer.kind === "contempt") {
       analytics.track("contempt_found", lawDetails(answer.law));
-      notes.push("That isn’t a grievance, so the court holds you in contempt.");
+      notes.push("That isn’t a grievance. The court is deeply offended.");
     } else analytics.track("case_declined");
     if (typeof answer.cases_left === "number") notes.push(casesLeft(answer.cases_left));
-    if (notes.length) setStatus(notes.join(" "));
+    render(answer, "live", null, notes.join(" "));
+    showRecordStatus(answer);
   } catch (error) {
     analytics.track("court_unavailable", { status: error.status });
     if ([0, 502, 503].includes(error.status)) system.load(true); // the chip says what's wrong
     // 0: unreachable or too slow; 429: in recess or too many cases; 503: providers down.
     const closed = [0, 429, 503].includes(error.status);
-    if (closed && (await showFamousCase(error.status === 429 ? "recess" : "down"))) {
-      setStatus(`${error.message} Meanwhile, from the court’s archives:`);
-    } else {
+    if (!(closed && (await showFamousCase(error.status === 429 ? "recess" : "down", error.message)))) {
+      stage("petition");
       setStatus(error.message);
     }
   } finally {
     clearTimeout(slow);
     file.disabled = false;
-    file.classList.remove("working");
   }
 });
 
 // ---- The verdict
 // `from` says where a ruling came from: "live", "famous" (the archive) or "record".
-function render(ruling, from = "live", source = null) {
+function render(ruling, from = "live", source = null, note = "") {
   if (ruling.kind === "declined") {
     decree.hide();
+    stage("petition");
     setStatus(ruling.message);
     return;
   }
-  const { verdict, law } = ruling;
+  const { law } = ruling;
   $("v-archive").hidden = from === "live";
-  if (from === "famous") $("v-archive").textContent = `From the archives: “${source.crime}” (outrage ${source.outrage} of 5).`;
-  if (from === "record") $("v-archive").textContent = `From the public record: “${source.crime}” (outrage ${source.outrage} of 5).`;
+  if (from === "famous") $("v-archive").textContent = `From the archives: “${source.crime}”`;
+  if (from === "record") $("v-archive").textContent = `From the public record: “${source.crime}”`;
+  $("v-notes").textContent = note;
+  $("v-notes").hidden = !note;
   $("archive-next").hidden = from !== "famous";
   $("v-record").hidden = true;
   live = from === "live" ? ruling : null;
+  onScreen = ruling;
   $("v-stamp").textContent = ruling.kind === "contempt" ? "Contempt" : "Guilty";
   fillText(ruling, from);
   $("v-law-text").textContent = law.text;
+  $("v-law-cite").textContent = `📜 ${law.citation} · ${law.jurisdiction_name}`;
   const meta = $("v-law-meta");
-  meta.replaceChildren(document.createTextNode(`${law.verbatim ? "Quoted from" : "Paraphrased from"} ${law.source}, ${law.citation}. ${law.jurisdiction_name}. `));
+  meta.replaceChildren(document.createTextNode(`${law.verbatim ? "Quoted from" : "Paraphrased from"} ${law.source}. `));
   if (law.source_url) {
     const link = make("a", "Read the source");
     link.href = law.source_url;
@@ -169,11 +195,21 @@ function render(ruling, from = "live", source = null) {
   }
   traceId = (ruling.meta && ruling.meta.trace_id) || "";
   $("feedback").hidden = !traceId;
-  setStatus("");
-  $("verdict").hidden = false;
+  $("feedback").replaceChildren(...feedbackButtons());
+  $("copy-verdict").textContent = "Copy";
+  stage("verdict");
   decree.offer(ruling); // the verdict, ready to export as an image
   $("verdict").focus({ preventScroll: true });
-  $("verdict").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function feedbackButtons() {
+  return [["1", "Fair", "👍"], ["-1", "Unfair", "👎"]].map(([value, label, face]) => {
+    const button = make("button", face);
+    Object.assign(button, { type: "button" });
+    button.dataset.value = value;
+    button.setAttribute("aria-label", label);
+    return button;
+  });
 }
 
 // On the visitor's own screen, the verdict uses the names they kept on this device. Cases
@@ -189,7 +225,7 @@ function fillText(ruling, from) {
   $("v-remarks").textContent = say(verdict.remarks);
   $("v-note").textContent = say(verdict.historical_note);
   const role = ruling.kind === "contempt" ? "the Petitioner" : "the Accused";
-  $("v-private").textContent = `On your screen, this verdict uses the names you kept on this device. The public record says “${role}”.`;
+  $("v-private").textContent = `Your names appear on your screen only. The record says “${role}”.`;
   $("v-private").hidden = !(from === "live" && (names.length || filer));
 }
 
@@ -208,7 +244,7 @@ function showRecordStatus(answer) {
   if (!answer.record) return;
   const { id, removal_key: key } = answer.record;
   const page = `${location.origin}${location.pathname}`;
-  box.append(make("p", "Your grievance and its verdict are in the public record now, without the names and photo you kept on this device. Keep the removal link if you might want it gone later."));
+  box.append(make("p", "Published. Keep the removal link in case you regret it."));
   const actions = make("div", "", "actions");
   actions.append(
     copyButton("Copy its link", `${page}#case/${id}`),
@@ -244,8 +280,8 @@ async function removeCase(id, key, box = null) {
   try {
     await request("POST", `/api/v1/records/${encodeURIComponent(id)}/remove`, { key });
     analytics.track("case_removed");
-    if (box) box.replaceChildren(make("p", "Removed from the public record."));
-    else setStatus("Removed from the public record.");
+    if (box) box.replaceChildren(make("p", "Removed. The court has forgotten everything. Mostly."));
+    else setStatus("Removed. The court has forgotten everything. Mostly.");
   } catch (error) {
     setStatus(error.message);
   }
@@ -263,29 +299,27 @@ async function loadArchive() {
   return archive;
 }
 
-async function showFamousCase(reason) {
+async function showFamousCase(reason, why = "") {
   const cases = await loadArchive();
   if (!cases.length) return false;
   let pick = Math.floor(Math.random() * cases.length);
   if (cases.length > 1 && pick === lastFamous) pick = (pick + 1) % cases.length;
   lastFamous = pick;
   const famous = cases[pick];
-  render(famous.ruling, "famous", famous.case);
+  render(famous.ruling, "famous", famous.case, why ? `${why} Meanwhile, from the archives:` : "");
   analytics.track("famous_case_shown", { reason, law_id: famous.ruling.law.law_id });
   return true;
 }
 
-async function showTeaser() {
-  const cases = await loadArchive();
-  if (!cases.length) return;
-  const { case: filed, ruling } = cases[Math.floor(Math.random() * cases.length)];
-  $("teaser").textContent = `Lately in this court: “${filed.crime}” ${ruling.verdict.sentence}`;
-  $("teaser").hidden = false;
+function casesLeft(count) {
+  if (count === 0) return "That was your last case today. The court needs its beauty sleep.";
+  return `${count} ${count === 1 ? "case" : "cases"} left today.`;
 }
 
-function casesLeft(count) {
-  if (count === 0) return "That was your last case today. The court will hear you again tomorrow.";
-  return `You can file ${count} more ${count === 1 ? "case" : "cases"} today.`;
+function copyText() {
+  const { verdict, law } = onScreen;
+  const say = (text) => (live ? decree.personalize(text, decree.people(), decree.plaintiff()) : text);
+  return `⚖ ${say(verdict.case_title)}\n${say(verdict.sentence)}\nUnder ${law.citation} (${law.jurisdiction_name}).\n${location.origin}${location.pathname}`;
 }
 
 function lawDetails(law) {
@@ -297,11 +331,25 @@ function setStatus(text) {
   $("status").textContent = text;
 }
 
-$("teaser").addEventListener("click", () => showFamousCase("teaser"));
 $("archive-button").addEventListener("click", async () => {
-  if (!(await showFamousCase("button"))) setStatus("The archives are empty for now.");
+  if (!(await showFamousCase("button"))) setStatus("The archives are empty. Someone filed them under “later”.");
 });
 $("archive-next").addEventListener("click", () => showFamousCase("another"));
+$("new-petition").addEventListener("click", () => {
+  $("crime").value = "";
+  $("crime").dispatchEvent(new Event("input"));
+  setStatus("");
+  stage("petition");
+  $("crime").focus();
+});
+$("copy-verdict").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(copyText());
+    $("copy-verdict").textContent = "Copied";
+  } catch {
+    prompt("Copy this:", copyText());
+  }
+});
 $("feedback").addEventListener("click", async (event) => {
   const button = event.target.closest("button");
   if (!button || !traceId) return;
@@ -309,9 +357,9 @@ $("feedback").addEventListener("click", async (event) => {
     const value = Number(button.dataset.value);
     await request("POST", "/api/v1/feedback", { trace_id: traceId, value });
     analytics.track("feedback_sent", { value });
-    setStatus("Thank you. The court has noted your opinion.");
+    $("feedback").replaceChildren(make("span", value > 0 ? "Noted. The judge is smug." : "Noted. The judge is sulking.", "hint"));
   } catch (error) {
-    setStatus(error.message);
+    $("feedback").replaceChildren(make("span", error.message, "hint"));
   }
 });
 
@@ -345,7 +393,7 @@ function failure(message, status) {
 
 function explain(status, data) {
   if (status === 422 && typeof data.detail === "string") return data.detail;
-  if (status === 422) return "Describe the crime in 10 to 600 characters.";
+  if (status === 422) return "Describe the crime in 10 to 600 characters. Brevity is the soul of litigation.";
   if (typeof data.detail === "string") return data.detail;
   return `The court hit an error (${status}). Try again.`;
 }
@@ -383,5 +431,4 @@ function route() {
 window.addEventListener("hashchange", route);
 route();
 loadCatalog();
-showTeaser();
 system.load();

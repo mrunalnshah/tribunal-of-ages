@@ -9,9 +9,9 @@ guess. An interviewer will ask how you got it.
 
 | Metric | Value | How it's measured | Step | Date |
 |---|---|---|---|---|
-| Laws in the corpus | 552: 247 from Hammurabi, 91 from the Salic Law, 214 from law files | the report `tribunal curate` prints | 7 | 2026-11-02 |
-| Sources | 72 books with laws (78 in data/laws/; 6 await their texts in Step 7) | the books in data/laws/, also in the curate report | 7 | 2026-11-02 |
-| Themes and jurisdictions | 4 themes, 72 jurisdictions (ancient 5, history 11, mythology 7, fiction 49) | the curate report, or data/processed/catalog.json | 7 | 2026-11-02 |
+| Laws in the corpus | 575: 247 from Hammurabi, 91 from the Salic Law, 237 from law files | the report `tribunal curate` prints | 7 | 2026-11-02 |
+| Sources | 78 books with laws (84 in data/laws/; 6 await their texts in Step 7) | the books in data/laws/, also in the curate report | 7 | 2026-11-02 |
+| Themes and jurisdictions | 4 themes, 76 jurisdictions (ancient 7, history 11, mythology 8, fiction 50) | the curate report, or data/processed/catalog.json | 7 | 2026-11-02 |
 | Laws reviewed by hand | [fill: rows you checked in data/review.csv] + 1 entry in overrides.json | rows you checked in data/review.csv, plus entries in data/overrides.json | 7 | 2026-11-02 |
 
 ## Retrieval quality
@@ -106,7 +106,7 @@ your tokens per verdict by the provider's price to show what a million verdicts 
 
 Fill the brackets from the rows above, and cut any line you can't back with a measured number.
 
-- Built and deployed a RAG service over 552 laws from 72 sources, with hybrid
+- Built and deployed a RAG service over 575 laws from 78 sources, with hybrid
   search (dense + BM25) and cross-encoder reranking that raised Hit@5 from 0.76 to
   0.80 (MRR 0.66 to 0.75) on a 41-query eval set that gates CI.
 - Made invented citations impossible by construction: the model picks a law by ID and code
