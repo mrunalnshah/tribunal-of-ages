@@ -1,0 +1,75 @@
+name: uptime
+# Every 30 minutes, a quick check of each part a visitor needs: no AI call, so no tokens. Once
+# a day, the full check, ending with one real verdict. Each run is added to uptime.json on the
+# status branch, which the System page and the README's badge read. An issue labeled "outage"
+# opens when something fails, and closes once all is well again.
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # quick checks; GitHub may start scheduled runs a few minutes late
+    - cron: "17 7 * * *"  # the full check, at 07:17 UTC
+  workflow_dispatch:  # the Run workflow button: a full check, by hand
+
+permissions:
+  actions: write  # to renew this workflow's schedule (see the last step)
+  contents: write  # to save uptime.json on the status branch
+  issues: write  # to open and close the outage issue
+
+concurrency:
+  group: uptime  # one run at a time, so two runs never save the history at once
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      QUICK: ${{ github.event.schedule == '*/30 * * * *' }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Fetch the uptime history
+        run: |
+          git fetch -q origin status && git show origin/status:uptime.json > uptime.json \
+            || echo "{}" > uptime.json  # the first run starts an empty history
+      - name: Check the website, API, database, AI providers and archive
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}  # optional: only for a custom domain
+        run: |
+          site="${SITE_URL:-https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/}"
+          quick=$([ "$QUICK" = "true" ] && echo --quick || true)
+          python3 scripts/uptime.py --site "$site" --report report.md --history uptime.json $quick
+      - name: Save the uptime history
+        if: always()
+        continue-on-error: true  # a failed save must not look like an outage
+        run: |
+          mv uptime.json "$RUNNER_TEMP/uptime.json"
+          git switch -q --orphan status
+          cp "$RUNNER_TEMP/uptime.json" uptime.json
+          git add uptime.json
+          git -c user.name="github-actions[bot]" \
+            -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "Uptime check, $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push -qf origin status  # one commit, replaced each time: the history is in the file
+      - name: Open the outage issue, or add the full check's report to it
+        if: failure()
+        run: |
+          test -s report.md || echo "The check stopped before writing a report: see the run log." > report.md
+          gh label create outage --color B60205 --description "Opened by the uptime workflow" --force
+          number=$(gh issue list --label outage --state open --json number --jq ".[].number" | head -n 1)
+          if [ -z "$number" ]; then
+            gh issue create --title "The Tribunal is down" --label outage --body-file report.md
+          elif [ "$QUICK" != "true" ]; then
+            gh issue comment "$number" --body-file report.md  # daily, not every 30 minutes
+          fi
+      - name: Close the outage issue
+        if: success()
+        run: |
+          for number in $(gh issue list --label outage --state open --json number --jq ".[].number"); do
+            gh issue close "$number" --comment "Back up on $(date -u '+%Y-%m-%d at %H:%M UTC')."
+          done
+      - name: Renew this schedule
+        # GitHub pauses scheduled workflows in public repositories after 60 days without activity.
+        # Re-enabling the workflow is what tools such as gh-workflow-immortality do to reset that
+        # count. If GitHub ever pauses it anyway, press Enable workflow on the Actions tab.
+        if: always()
+        run: gh workflow enable uptime.yml
