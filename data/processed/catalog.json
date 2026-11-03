@@ -5,12 +5,12 @@
       "name": "Ancient laws",
       "description": "Real legal codes from the ancient world, quoted word for word or carefully paraphrased.",
       "default": true,
-      "laws": 236,
+      "laws": 248,
       "jurisdictions": [
         {
           "id": "athens",
           "name": "Athens",
-          "laws": 11
+          "laws": 13
         },
         {
           "id": "babylon",
@@ -18,9 +18,14 @@
           "laws": 129
         },
         {
+          "id": "qing",
+          "name": "Qing China",
+          "laws": 6
+        },
+        {
           "id": "rome",
           "name": "Rome",
-          "laws": 4
+          "laws": 6
         },
         {
           "id": "sparta",
@@ -31,6 +36,11 @@
           "id": "franks",
           "name": "The Franks",
           "laws": 86
+        },
+        {
+          "id": "icelandic-commonwealth",
+          "name": "The Icelandic Commonwealth",
+          "laws": 2
         }
       ]
     },
@@ -39,17 +49,22 @@
       "name": "Myths and legends",
       "description": "Rules and punishments from myth, quoted from public-domain translations.",
       "default": false,
-      "laws": 32,
+      "laws": 35,
       "jurisdictions": [
         {
           "id": "asgard",
           "name": "Asgard",
-          "laws": 8
+          "laws": 9
         },
         {
           "id": "olympus",
           "name": "Olympus",
           "laws": 9
+        },
+        {
+          "id": "takamagahara",
+          "name": "Takamagahara, the High Plain of Heaven",
+          "laws": 1
         },
         {
           "id": "dragon-palace",
@@ -59,7 +74,7 @@
         {
           "id": "hall-of-two-truths",
           "name": "The Hall of Two Truths",
-          "laws": 10
+          "laws": 11
         },
         {
           "id": "heavenly-court",
@@ -83,7 +98,7 @@
       "name": "Fiction",
       "description": "Laws from novels, films and series. Modern stories are paraphrased, never quoted.",
       "default": false,
-      "laws": 124,
+      "laws": 130,
       "jurisdictions": [
         {
           "id": "galaxy-far-far-away",
@@ -163,7 +178,7 @@
         {
           "id": "hogwarts",
           "name": "Hogwarts",
-          "laws": 5
+          "laws": 6
         },
         {
           "id": "kingston-falls",
@@ -231,6 +246,11 @@
           "laws": 1
         },
         {
+          "id": "shakespeares-courts",
+          "name": "Shakespeare's courts",
+          "laws": 3
+        },
+        {
           "id": "terminus",
           "name": "Terminus",
           "laws": 4
@@ -278,7 +298,7 @@
         {
           "id": "the-hispaniola",
           "name": "The Hispaniola",
-          "laws": 1
+          "laws": 2
         },
         {
           "id": "the-jungle",
@@ -328,7 +348,7 @@
         {
           "id": "westeros",
           "name": "Westeros",
-          "laws": 9
+          "laws": 10
         }
       ]
     },
@@ -337,7 +357,7 @@
       "name": "History, to 1959",
       "description": "Real laws from 1217 to 1959 that sound absurd today, paraphrased from the statutes.",
       "default": false,
-      "laws": 37,
+      "laws": 39,
       "jurisdictions": [
         {
           "id": "wartime-britain",
@@ -347,7 +367,7 @@
         {
           "id": "england",
           "name": "England",
-          "laws": 6
+          "laws": 8
         },
         {
           "id": "finland",
