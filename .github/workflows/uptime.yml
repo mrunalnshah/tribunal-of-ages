@@ -26,7 +26,7 @@ jobs:
       GH_REPO: ${{ github.repository }}
       QUICK: ${{ github.event.schedule == '*/30 * * * *' }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Fetch the uptime history
         run: |
           git fetch -q origin status && git show origin/status:uptime.json > uptime.json \
