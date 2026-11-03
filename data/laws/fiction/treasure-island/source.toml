@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "the-hispaniola"
+jurisdiction_name = "The Hispaniola"
+source = "Robert Louis Stevenson, Treasure Island (1883) (paraphrased)"
+source_url = "https://www.gutenberg.org/ebooks/120"
+license = "Public domain; paraphrased in our own words: published in 1883"
+verbatim = false

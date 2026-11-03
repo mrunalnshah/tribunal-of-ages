@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" data-skin="archive">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Tribunal of Ages</title>
+  <meta name="description" content="Bring your pettiest grievance before 4,000 years of law. Real law codes, myths and stories, and every verdict cites its law.">
+  <script>
+    // Before the page paints, use the skin this visitor chose last time. It stays on this device.
+    try { const skin = localStorage.getItem("tribunal-skin"); if (skin) document.documentElement.dataset.skin = skin; } catch {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Skins: one file each. data-name is the label on the switch; data-decree is the decree design it opens with. -->
+  <link rel="stylesheet" href="themes/archive.css" data-skin="archive" data-name="Archive" data-decree="royal-parchment">
+  <link rel="stylesheet" href="themes/cartoon.css" data-skin="cartoon" data-name="Cartoon" data-decree="wanted-poster">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the court</a>
+  <header class="masthead">
+    <a class="brand" href="#court" aria-label="The Tribunal of Ages, home">
+      <svg class="crest" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" class="crest-ring"/><path d="M24 11v26M15 37h18M12 17h24M12 17l-5 11h10zM36 17l-5 11h10z" class="crest-lines"/></svg>
+      <span>The Tribunal of Ages</span>
+    </a>
+    <a class="live" id="chip" href="#system" data-state="checking"><span class="pulse" aria-hidden="true"></span><span id="chip-text">Opening the court…</span></a>
+    <nav class="rooms" aria-label="Rooms">
+      <a href="#court" data-room="court">Court</a>
+      <a href="#library" data-room="library">Library</a>
+      <a href="#system" data-room="system">System</a>
+    </nav>
+    <div class="skins" id="skins" role="group" aria-label="Look"></div>
+  </header>
+
+  <main id="main">
+    <section class="room" id="court" aria-labelledby="court-title">
+      <div class="hero">
+        <h1 id="court-title">Bring your pettiest grievance before 4,000 years of law</h1>
+        <p class="lede">Real law codes, myths and stories. Every verdict cites the law that decided it.</p>
+        <a class="tally" id="tally" href="#system" hidden></a>
+        <button type="button" class="teaser" id="teaser" hidden></button>
+      </div>
+
+      <form class="card filing" id="case-form" novalidate>
+        <fieldset class="public-part">
+          <legend class="part"><span aria-hidden="true">📜</span> For the court, and the public record</legend>
+          <label class="label" for="crime">Your grievance</label>
+          <textarea id="crime" maxlength="5000" rows="4" required placeholder="My roommate ate my leftover pizza from the fridge. Even the crusts."></textarea>
+          <p class="hint"><span id="crime-count" aria-live="polite">0 of 600 characters.</span> Leave names out: say “my roommate”, not “Dave”. The court calls people the Plaintiff and the Accused.</p>
+          <fieldset class="outrage">
+            <legend class="label">How outraged are you?</legend>
+            <div class="segments" id="outrage"></div>
+          </fieldset>
+          <fieldset>
+            <legend class="label">Judge me by</legend>
+            <div class="chips" id="themes"></div>
+            <p class="hint" id="themes-status"></p>
+          </fieldset>
+          <label class="label" for="jurisdiction">One realm only? <span class="hint">Optional</span></label>
+          <select id="jurisdiction"><option value="any">Any realm</option></select>
+        </fieldset>
+
+        <fieldset class="private-part">
+          <legend class="part"><span aria-hidden="true">🔒</span> Only on this device: never sent, never stored</legend>
+          <p class="hint">These make your verdict and your decree personal. They never leave this browser: not to the court, not to the public record, not to analytics.</p>
+          <label class="label" for="accused">The accused <span class="hint">Up to three names, separated by commas</span></label>
+          <input id="accused" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Dave">
+          <label class="label" for="plaintiff">You, the plaintiff <span class="hint">Optional</span></label>
+          <input id="plaintiff" type="text" maxlength="40" autocomplete="off" spellcheck="false" placeholder="Priya">
+          <label class="label" for="decree-photo">A photo for the decree <span class="hint">Optional</span></label>
+          <input id="decree-photo" type="file" accept="image/*">
+          <p class="hint" id="decree-photo-status" role="status"></p>
+          <button type="button" class="quiet" id="decree-photo-remove" hidden>Remove the photo</button>
+        </fieldset>
+
+        <label class="consent">
+          <input type="checkbox" id="consent">
+          <span>I understand that the court keeps what I write, and publishes my grievance and its verdict in the public record, word for word, with the law that decided it. The names and photo I added above stay on this device.</span>
+        </label>
+        <div class="actions">
+          <button type="submit" class="primary" id="file"><span class="gavel" aria-hidden="true">⚖</span> File your case</button>
+          <button type="button" class="quiet" id="archive-button">Or read a famous case</button>
+        </div>
+      </form>
+
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+
+      <article class="card verdict" id="verdict" hidden tabindex="-1" aria-labelledby="v-title">
+        <p class="archive-note" id="v-archive" hidden></p>
+        <p class="stamp" id="v-stamp" aria-hidden="true">Guilty</p>
+        <h2 id="v-title"></h2>
+        <p class="private-note" id="v-private" hidden>On your screen, this verdict uses the names you kept on this device. The public record says “the Accused”.</p>
+        <p class="charge"><span class="label">The charge</span> <span id="v-charge"></span></p>
+        <p class="sentence"><span class="label">The sentence</span> <span id="v-sentence"></span></p>
+        <blockquote class="law"><p id="v-law-text"></p><footer id="v-law-meta"></footer></blockquote>
+        <p class="remarks" id="v-remarks"></p>
+        <p class="history" id="v-note"></p>
+        <div class="record-status" id="v-record" hidden></div>
+        <div class="feedback" id="feedback" role="group" aria-label="Was this verdict fair?">
+          <span class="hint">Was it fair?</span>
+          <button type="button" data-value="1" aria-label="Fair">👍</button>
+          <button type="button" data-value="-1" aria-label="Unfair">👎</button>
+        </div>
+        <details class="decree" id="decree" hidden>
+          <summary>Make it official: export the decree as an image</summary>
+          <div class="decree-form">
+            <p class="hint">It uses the names and photo you kept on this device, above. They’re drawn into the image here and sent nowhere.</p>
+            <label for="decree-theme">Design</label>
+            <select id="decree-theme"></select>
+          </div>
+          <canvas id="decree-canvas" width="1080" height="1350" role="img" aria-label="The decree"></canvas>
+          <div class="actions">
+            <button type="button" class="primary" id="decree-download">Download the image</button>
+            <button type="button" id="decree-share" hidden>Share</button>
+          </div>
+        </details>
+        <button type="button" class="quiet" id="archive-next" hidden>Show another famous case</button>
+        <p class="disclaimer">For entertainment only. Not legal advice.</p>
+      </article>
+    </section>
+
+    <section class="room" id="library" aria-labelledby="library-title" hidden>
+      <div class="hero">
+        <h1 id="library-title">The library</h1>
+        <p class="lede">Every law the court can cite, and every verdict it has given.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="The library">
+        <button type="button" role="tab" id="tab-laws" aria-controls="laws-panel" aria-selected="true">Laws</button>
+        <button type="button" role="tab" id="tab-verdicts" aria-controls="verdicts-panel" aria-selected="false">Verdicts</button>
+      </div>
+
+      <div class="panel" id="laws-panel" role="tabpanel" aria-labelledby="tab-laws">
+        <div class="podium" id="podium" hidden>
+          <h2 class="label">Laws cited most</h2>
+          <div class="steps" id="podium-steps"></div>
+        </div>
+        <div class="finder">
+          <label class="sr-only" for="law-search">Search the laws</label>
+          <input type="search" id="law-search" placeholder="Search the laws: theft, noise, insults, cattle" autocomplete="off">
+          <label class="sr-only" for="law-realm">Realm</label>
+          <select id="law-realm"><option value="">Every realm</option></select>
+        </div>
+        <div class="chips" id="law-themes" role="group" aria-label="Themes"></div>
+        <p class="hint" id="laws-status" role="status" aria-live="polite"></p>
+        <div class="grid" id="law-list"></div>
+        <button type="button" class="more" id="laws-more" hidden>Show more laws</button>
+      </div>
+
+      <div class="panel" id="verdicts-panel" role="tabpanel" aria-labelledby="tab-verdicts" hidden>
+        <div class="chips" role="group" aria-label="Which verdicts">
+          <button type="button" class="chip" id="show-recent" aria-pressed="true">Recent</button>
+          <button type="button" class="chip" id="show-famous" aria-pressed="false">Famous</button>
+        </div>
+        <p class="hint" id="verdicts-status" role="status" aria-live="polite"></p>
+        <div class="grid" id="verdict-list"></div>
+        <button type="button" class="more" id="verdicts-more" hidden>Show older verdicts</button>
+      </div>
+    </section>
+    <section class="room" id="system" aria-labelledby="system-title" hidden>
+      <div class="hero">
+        <h1 id="system-title">The court’s ledger</h1>
+        <p class="lede">Every case it has heard, and what it takes to run.</p>
+        <p class="state-line" id="s-state" data-state="checking"><span class="pulse" aria-hidden="true"></span><span id="s-state-text">Opening the court…</span></p>
+      </div>
+      <p class="status" id="s-status" role="status"></p>
+      <div class="card uptime" id="uptime" hidden>
+        <h2 class="label">Uptime</h2>
+        <p class="uptime-head"><span class="figure" id="u-90"></span> <span class="hint" id="u-30"></span></p>
+        <div class="uptime-bars" id="u-bars" role="img"></div>
+        <div class="axis"><span class="wide">90 days ago</span><span class="narrow">30 days ago</span><span>Today</span></div>
+        <p class="hint" id="u-note"></p>
+      </div>
+      <div class="ledger" id="ledger" hidden>
+        <div class="card headline">
+          <div><p class="number" id="s-all"></p><p class="caption">cases judged</p></div>
+          <figure class="ring" id="s-ring"></figure>
+        </div>
+        <div class="card"><h2 class="label">Rulings</h2><div id="s-kinds"></div></div>
+        <div class="card"><h2 class="label">The last 30 days</h2><svg id="s-days" class="days" viewBox="0 0 600 130" role="img"></svg><div class="axis" id="s-axis"></div></div>
+        <div class="card"><h2 class="label">AI tokens</h2><div id="s-tokens"></div></div>
+        <div class="card"><h2 class="label">Tokens saved</h2><div class="saved" id="s-saved"></div></div>
+        <div class="card"><h2 class="label">Who’s answering</h2><ul class="providers" id="s-providers"></ul></div>
+        <p class="hint">Counts only: nothing anyone wrote. Updated every minute.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>What’s public: your grievance and its verdict, word for word, with the law that decided it, once you tick the box. What’s kept privately: every grievance you file, even ones that aren’t judged or published; your removal link deletes yours. What’s never kept: the names and photo you add, which never leave your device. A case that contains contact details or a link is judged but not published, reports hide a case until it’s reviewed, and you can remove your own. Visits are counted anonymously. An idle court can take a minute to wake.</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="analytics.js"></script>
+  <script src="skins.js"></script>
+  <script src="decree.js"></script>
+  <script src="system.js"></script>
+  <script src="library.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

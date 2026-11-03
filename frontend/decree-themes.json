@@ -1,0 +1,146 @@
+{
+  "themes": [
+    {
+      "id": "clay-tablet",
+      "name": "Clay tablet",
+      "suits": [
+        "ancient"
+      ],
+      "title": "Decree",
+      "paper": [
+        "#dcb98f",
+        "#bf9163"
+      ],
+      "ink": "#2b1a0c",
+      "accent": "#5a300f",
+      "seal": "#7a2614",
+      "texture": "speckle",
+      "border": "wedges",
+      "font": "Georgia, 'Times New Roman', serif",
+      "portrait": "circle"
+    },
+    {
+      "id": "papyrus",
+      "name": "Papyrus scroll",
+      "suits": [
+        "ancient",
+        "mythology"
+      ],
+      "title": "Royal Decree",
+      "paper": [
+        "#f2e6c4",
+        "#dccb98"
+      ],
+      "ink": "#2a200f",
+      "accent": "#8c2a18",
+      "seal": "#24427f",
+      "texture": "fibers",
+      "border": "double",
+      "font": "Georgia, 'Times New Roman', serif",
+      "portrait": "oval"
+    },
+    {
+      "id": "marble-stele",
+      "name": "Marble stele",
+      "suits": [
+        "mythology"
+      ],
+      "title": "Edict",
+      "paper": [
+        "#f3f2ee",
+        "#d9d7d1"
+      ],
+      "ink": "#1f2126",
+      "accent": "#6b4e0e",
+      "seal": "#8a6a1c",
+      "texture": "veins",
+      "border": "double",
+      "font": "Georgia, 'Times New Roman', serif",
+      "portrait": "oval"
+    },
+    {
+      "id": "royal-parchment",
+      "name": "Royal parchment",
+      "suits": [
+        "ancient"
+      ],
+      "title": "Sentence of the Court",
+      "paper": [
+        "#f6eed8",
+        "#e4d2a8"
+      ],
+      "ink": "#2b1d12",
+      "accent": "#7d1f1f",
+      "seal": "#8f1717",
+      "texture": "grain",
+      "border": "dots",
+      "font": "Georgia, 'Times New Roman', serif",
+      "portrait": "oval"
+    },
+    {
+      "id": "storybook",
+      "name": "Storybook",
+      "suits": [
+        "fiction"
+      ],
+      "title": "By Order of the Court",
+      "paper": [
+        "#fcf8ee",
+        "#efe4c9"
+      ],
+      "ink": "#1d3a2e",
+      "accent": "#5b2f91",
+      "seal": "#5b2f91",
+      "texture": "grain",
+      "border": "dots",
+      "font": "Georgia, 'Times New Roman', serif",
+      "portrait": "circle"
+    },
+    {
+      "id": "wanted-poster",
+      "name": "Wanted poster",
+      "suits": [
+        "fiction"
+      ],
+      "title": "SENTENCED",
+      "paper": [
+        "#ecd8aa",
+        "#cfae70"
+      ],
+      "ink": "#24160b",
+      "accent": "#4a250e",
+      "seal": "#4a250e",
+      "texture": "speckle",
+      "border": "bold",
+      "font": "Rockwell, 'Courier New', Courier, serif",
+      "portrait": "square"
+    },
+    {
+      "id": "night-court",
+      "name": "Night court",
+      "suits": [],
+      "title": "Decree",
+      "paper": [
+        "#1d2643",
+        "#0e1326"
+      ],
+      "ink": "#f3e9cc",
+      "accent": "#d8b24a",
+      "seal": "#b8902c",
+      "texture": "grain",
+      "border": "double",
+      "font": "Georgia, 'Times New Roman', serif",
+      "portrait": "circle"
+    },
+    {
+      "id": "plain",
+      "name": "Plain",
+      "title": "Decree",
+      "paper": [
+        "#ffffff",
+        "#ececec"
+      ],
+      "ink": "#1a1a1a"
+    }
+  ]
+}

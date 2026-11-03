@@ -1,0 +1,13 @@
+# Extra AI providers, tried in this order after Groq and its spare (Step 16). Each one is any
+# OpenAI-compatible API, used only when the environment holds its key and every ${VARIABLE}
+# in its address. Check a provider's data terms before adding it: grievances pass through it.
+
+[[provider]]
+name = "cloudflare"
+base_url = "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/ai/v1"
+api_key_env = "CLOUDFLARE_API_TOKEN"
+fast_model = "@cf/openai/gpt-oss-20b"
+smart_model = "@cf/openai/gpt-oss-120b"
+reasoning_effort = "low"
+cap_field = "max_tokens"
+cases_per_day = 115  # 10,000 free Neurons a day, at about 87 Neurons a case

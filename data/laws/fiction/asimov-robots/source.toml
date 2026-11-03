@@ -1,0 +1,6 @@
+# A modern, copyrighted story: every law here is our own short paraphrase, never a quote.
+jurisdiction = "us-robots"
+jurisdiction_name = "Asimov's robots"
+source = "Isaac Asimov, the robot stories (paraphrased)"
+license = "Paraphrased in our own words for a non-commercial fan project; nothing is quoted"
+verbatim = false

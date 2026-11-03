@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "athens"
+jurisdiction_name = "Athens"
+source = "Plutarch, Life of Solon, chapters 20-24, trans. B. Perrin (1914) (paraphrased)"
+source_url = "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Solon*.html"
+license = "Public domain; paraphrased in our own words: Perrin's translation was published in 1914"
+verbatim = false

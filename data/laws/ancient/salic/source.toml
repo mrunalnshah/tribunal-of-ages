@@ -1,0 +1,6 @@
+jurisdiction = "franks"
+jurisdiction_name = "The Franks"
+source = "The Salic Law, trans. E. F. Henderson (1896)"
+source_url = "https://avalon.law.yale.edu/medieval/salic.asp"
+license = "Public domain: published 1896, the translator died in 1928"
+parser = "salic"

@@ -1,0 +1,400 @@
+{
+  "themes": [
+    {
+      "id": "ancient",
+      "name": "Ancient laws",
+      "description": "Real legal codes from the ancient world, quoted word for word or carefully paraphrased.",
+      "default": true,
+      "laws": 236,
+      "jurisdictions": [
+        {
+          "id": "athens",
+          "name": "Athens",
+          "laws": 11
+        },
+        {
+          "id": "babylon",
+          "name": "Babylon",
+          "laws": 129
+        },
+        {
+          "id": "rome",
+          "name": "Rome",
+          "laws": 4
+        },
+        {
+          "id": "sparta",
+          "name": "Sparta",
+          "laws": 6
+        },
+        {
+          "id": "franks",
+          "name": "The Franks",
+          "laws": 86
+        }
+      ]
+    },
+    {
+      "id": "mythology",
+      "name": "Myths and legends",
+      "description": "Rules and punishments from myth, quoted from public-domain translations.",
+      "default": false,
+      "laws": 32,
+      "jurisdictions": [
+        {
+          "id": "asgard",
+          "name": "Asgard",
+          "laws": 8
+        },
+        {
+          "id": "olympus",
+          "name": "Olympus",
+          "laws": 9
+        },
+        {
+          "id": "dragon-palace",
+          "name": "The Dragon Palace",
+          "laws": 1
+        },
+        {
+          "id": "hall-of-two-truths",
+          "name": "The Hall of Two Truths",
+          "laws": 10
+        },
+        {
+          "id": "heavenly-court",
+          "name": "The Heavenly Court",
+          "laws": 2
+        },
+        {
+          "id": "ulster",
+          "name": "Ulster",
+          "laws": 1
+        },
+        {
+          "id": "yomi",
+          "name": "Yomi, the land of the dead",
+          "laws": 1
+        }
+      ]
+    },
+    {
+      "id": "fiction",
+      "name": "Fiction",
+      "description": "Laws from novels, films and series. Modern stories are paraphrased, never quoted.",
+      "default": false,
+      "laws": 124,
+      "jurisdictions": [
+        {
+          "id": "galaxy-far-far-away",
+          "name": "A galaxy far, far away",
+          "laws": 7
+        },
+        {
+          "id": "agrabah",
+          "name": "Agrabah",
+          "laws": 2
+        },
+        {
+          "id": "andys-room",
+          "name": "Andy's room",
+          "laws": 1
+        },
+        {
+          "id": "animal-farm",
+          "name": "Animal Farm",
+          "laws": 3
+        },
+        {
+          "id": "ankh-morpork",
+          "name": "Ankh-Morpork",
+          "laws": 2
+        },
+        {
+          "id": "arrakis",
+          "name": "Arrakis",
+          "laws": 4
+        },
+        {
+          "id": "us-robots",
+          "name": "Asimov's robots",
+          "laws": 2
+        },
+        {
+          "id": "berk",
+          "name": "Berk",
+          "laws": 1
+        },
+        {
+          "id": "brobdingnag",
+          "name": "Brobdingnag",
+          "laws": 1
+        },
+        {
+          "id": "catchfools",
+          "name": "Catchfools",
+          "laws": 1
+        },
+        {
+          "id": "erewhon",
+          "name": "Erewhon",
+          "laws": 2
+        },
+        {
+          "id": "ferenginar",
+          "name": "Ferenginar",
+          "laws": 4
+        },
+        {
+          "id": "fight-club",
+          "name": "Fight Club",
+          "laws": 1
+        },
+        {
+          "id": "gallifrey",
+          "name": "Gallifrey",
+          "laws": 2
+        },
+        {
+          "id": "hill-valley",
+          "name": "Hill Valley",
+          "laws": 1
+        },
+        {
+          "id": "hogwarts",
+          "name": "Hogwarts",
+          "laws": 5
+        },
+        {
+          "id": "kingston-falls",
+          "name": "Kingston Falls",
+          "laws": 1
+        },
+        {
+          "id": "lilliput",
+          "name": "Lilliput",
+          "laws": 10
+        },
+        {
+          "id": "litwaks-arcade",
+          "name": "Litwak's Arcade",
+          "laws": 1
+        },
+        {
+          "id": "looking-glass-land",
+          "name": "Looking-Glass Land",
+          "laws": 3
+        },
+        {
+          "id": "metroville",
+          "name": "Metroville",
+          "laws": 2
+        },
+        {
+          "id": "middle-earth",
+          "name": "Middle-earth",
+          "laws": 6
+        },
+        {
+          "id": "motunui",
+          "name": "Motunui",
+          "laws": 1
+        },
+        {
+          "id": "narnia",
+          "name": "Narnia",
+          "laws": 8
+        },
+        {
+          "id": "oceania",
+          "name": "Oceania",
+          "laws": 1
+        },
+        {
+          "id": "once-upon-a-time",
+          "name": "Once upon a time",
+          "laws": 3
+        },
+        {
+          "id": "panem",
+          "name": "Panem",
+          "laws": 5
+        },
+        {
+          "id": "penzance",
+          "name": "Penzance",
+          "laws": 2
+        },
+        {
+          "id": "pianosa",
+          "name": "Pianosa",
+          "laws": 1
+        },
+        {
+          "id": "terminus",
+          "name": "Terminus",
+          "laws": 4
+        },
+        {
+          "id": "the-axiom",
+          "name": "The Axiom",
+          "laws": 1
+        },
+        {
+          "id": "the-caribbean",
+          "name": "The Caribbean, under the Pirate Code",
+          "laws": 2
+        },
+        {
+          "id": "the-doldrums",
+          "name": "The Doldrums",
+          "laws": 1
+        },
+        {
+          "id": "emerald-city",
+          "name": "The Emerald City",
+          "laws": 2
+        },
+        {
+          "id": "the-federation",
+          "name": "The Federation",
+          "laws": 1
+        },
+        {
+          "id": "four-nations",
+          "name": "The Four Nations",
+          "laws": 2
+        },
+        {
+          "id": "the-galaxy",
+          "name": "The Galaxy, as the Guide sees it",
+          "laws": 1
+        },
+        {
+          "id": "ghostbusters",
+          "name": "The Ghostbusters' firehouse",
+          "laws": 1
+        },
+        {
+          "id": "the-hispaniola",
+          "name": "The Hispaniola",
+          "laws": 1
+        },
+        {
+          "id": "the-jungle",
+          "name": "The Jungle",
+          "laws": 5
+        },
+        {
+          "id": "men-in-black",
+          "name": "The Men in Black",
+          "laws": 1
+        },
+        {
+          "id": "pokemon-world",
+          "name": "The Pokémon world",
+          "laws": 2
+        },
+        {
+          "id": "pride-lands",
+          "name": "The Pride Lands",
+          "laws": 1
+        },
+        {
+          "id": "the-society",
+          "name": "The Society",
+          "laws": 2
+        },
+        {
+          "id": "the-county",
+          "name": "The county court",
+          "laws": 1
+        },
+        {
+          "id": "the-firemens-city",
+          "name": "The firemen's city",
+          "laws": 1
+        },
+        {
+          "id": "the-reef",
+          "name": "The reef",
+          "laws": 1
+        },
+        {
+          "id": "titipu",
+          "name": "Titipu",
+          "laws": 2
+        },
+        {
+          "id": "westeros",
+          "name": "Westeros",
+          "laws": 9
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "name": "History, to 1959",
+      "description": "Real laws from 1217 to 1959 that sound absurd today, paraphrased from the statutes.",
+      "default": false,
+      "laws": 37,
+      "jurisdictions": [
+        {
+          "id": "wartime-britain",
+          "name": "Britain at war, 1914-1918",
+          "laws": 4
+        },
+        {
+          "id": "england",
+          "name": "England",
+          "laws": 6
+        },
+        {
+          "id": "finland",
+          "name": "Finland",
+          "laws": 1
+        },
+        {
+          "id": "iceland",
+          "name": "Iceland",
+          "laws": 1
+        },
+        {
+          "id": "massachusetts",
+          "name": "Massachusetts Bay Colony",
+          "laws": 1
+        },
+        {
+          "id": "russia",
+          "name": "Russia under Peter the Great",
+          "laws": 3
+        },
+        {
+          "id": "scotland",
+          "name": "Scotland",
+          "laws": 2
+        },
+        {
+          "id": "ottoman-empire",
+          "name": "The Ottoman Empire",
+          "laws": 1
+        },
+        {
+          "id": "united-states",
+          "name": "The United States",
+          "laws": 3
+        },
+        {
+          "id": "edo-japan",
+          "name": "Tokugawa Japan",
+          "laws": 4
+        },
+        {
+          "id": "victorian-england",
+          "name": "Victorian England",
+          "laws": 11
+        }
+      ]
+    }
+  ]
+}

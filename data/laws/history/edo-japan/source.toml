@@ -1,0 +1,6 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "edo-japan"
+jurisdiction_name = "Tokugawa Japan"
+source = "Edicts of the Tokugawa shogunate, 1615-1843 (paraphrased)"
+license = "Public domain; paraphrased in our own words: edicts of 1615-1843"
+verbatim = false

@@ -12,7 +12,9 @@ dependencies = [
     "fastapi>=0.162.0",
     "html5lib>=1.1",
     "httpx>=0.28.1",
+    "langfuse>=5.1.0",
     "openai>=3.42.0",
+    "psycopg[binary]>=3.3.6",
     "pydantic-settings>=2.16.2",
     "python-dotenv>=1.2.4",
     "qdrant-client[fastembed]>=1.20.0",
@@ -40,7 +42,18 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "locust>=2.47.0",
+    "mypy>=2.4.1",
     "pre-commit>=4.7.0",
     "pytest>=9.2.0",
     "ruff>=0.17.3",
 ]
+
+[tool.mypy]
+files = ["src", "tests", "scripts"]
+plugins = ["pydantic.mypy"]
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["fastembed.*", "locust.*"]
+ignore_missing_imports = true  # in case these ship no type hints

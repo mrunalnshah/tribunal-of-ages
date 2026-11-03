@@ -1,0 +1,46 @@
+{"query": "my roommate ate my pizza from the fridge", "relevant": ["plutarch-solon-17", "salic-XI-1", "salic-XI-3", "hammurabi-8", "hammurabi-113"]}
+{"query": "he stole two of my sheep", "relevant": ["hammurabi-8", "salic-II-14"]}
+{"query": "someone broke into my house and took my laptop", "relevant": ["hammurabi-21", "salic-XI-3", "salic-XI-4", "salic-XI-5"]}
+{"query": "someone stole my bike from outside the house", "relevant": ["salic-XI-1", "salic-XI-2", "hammurabi-259", "hammurabi-260"]}
+{"query": "he took my charger and now says I never lent it", "relevant": ["hammurabi-112", "hammurabi-124", "hammurabi-120"]}
+{"query": "he stole my dog", "relevant": ["salic-XXXIII-2"]}
+{"query": "she called me a fox in front of everyone", "relevant": ["salic-XXX-4", "salic-XXX-5", "salic-XXX-7"]}
+{"query": "my coworker lied about me to the boss", "relevant": ["salic-XVIII-1", "hammurabi-3", "hammurabi-1", "twelve-tables-08-23"]}
+{"query": "he punched me and my nose bled on the floor", "relevant": ["salic-XVII-5", "salic-XVII-6", "hammurabi-203", "hammurabi-206"]}
+{"query": "my neighbor's bull charged at my friend", "relevant": ["hammurabi-251"]}
+{"query": "my contractor built a wall that collapsed on my stuff", "relevant": ["hammurabi-229", "hammurabi-232", "hammurabi-233"]}
+{"query": "he chopped down the tree in my garden", "relevant": ["hammurabi-59"]}
+{"query": "he borrowed money and refuses to pay me back", "relevant": ["salic-L-1", "salic-L-2"]}
+{"query": "my roommate left the tap running and flooded my room", "relevant": ["hammurabi-55", "hammurabi-56"]}
+{"query": "my roommate is too lazy to ever do the dishes", "relevant": ["plutarch-solon-17", "hammurabi-44", "solon-idleness"]}
+{"query": "my friend crashed the car I lent him", "relevant": ["hammurabi-236", "hammurabi-237"]}
+{"query": "he drove across my lawn and ruined it", "relevant": ["salic-XXXIV-2", "salic-XXXIV-3"]}
+{"query": "someone set my garage on fire", "relevant": ["salic-XV-1", "twelve-tables-08-10"]}
+{"query": "my neighbor threw a loud party at 2 am", "relevant": ["twelve-tables-08-26"]}
+{"query": "my doctor botched my surgery", "relevant": ["hammurabi-218"]}
+{"query": "he stole my lighter", "themes": ["mythology"], "relevant": ["theogony-prometheus"]}
+{"query": "he said my singing was awful", "themes": ["mythology"], "relevant": ["metamorphoses-midas"]}
+{"query": "my coworker came to work sick and coughed on everyone", "themes": ["fiction"], "relevant": ["erewhon-illness"]}
+{"query": "my teammate abandoned our group project halfway", "themes": ["fiction"], "relevant": ["game-of-thrones-desertion"]}
+{"query": "he put a curse on my laptop", "themes": ["fiction"], "relevant": ["harry-potter-unforgivable-curses"]}
+{"query": "my roommate keeps breaking the house rules", "themes": ["fiction"], "relevant": ["harry-potter-house-points", "wonderland-queens-sentence"]}
+{"query": "my very tall cousin refused to leave the meeting", "themes": ["fiction"], "relevant": ["wonderland-rule-42"]}
+{"query": "my roommate ate my pizza from the fridge", "themes": ["ancient", "mythology", "fiction"], "relevant": ["plutarch-solon-17", "salic-XI-1", "salic-XI-3", "hammurabi-8", "theogony-prometheus", "hammurabi-113", "fairy-tales-porridge", "book-of-the-dead-cakes", "greek-myths-tantalus"]}
+{"query": "someone flew a kite in the street and it hit my car", "themes": ["history"], "relevant": ["victorian-streets-kites", "wartime-britain-signals"]}
+{"query": "he shook his dusty rug out over the pavement and it landed on me", "themes": ["history"], "relevant": ["victorian-streets-carpets"]}
+{"query": "my neighbour keeps ringing my doorbell and running away", "themes": ["history"], "relevant": ["victorian-streets-doorbells"]}
+{"query": "he got drunk and rode his horse through the town square", "themes": ["history"], "relevant": ["victorian-streets-drunk-in-charge"]}
+{"query": "she charged me fifty dollars to read my palm and it was all nonsense", "themes": ["history"], "relevant": ["victorian-streets-fortunes", "england-witchcraft"]}
+{"query": "he refuses to shave his ridiculous beard", "themes": ["history"], "relevant": ["petrine-russia-beard-tax"]}
+{"query": "he kicked a stray dog for no reason", "themes": ["history"], "relevant": ["edo-japan-dogs"]}
+{"query": "my friend keeps buying rounds of drinks to show off", "themes": ["history"], "relevant": ["wartime-britain-no-treating"]}
+{"query": "he swore a solemn oath and then broke it", "themes": ["mythology"], "relevant": ["greek-myths-styx-oath"]}
+{"query": "he ate the snacks I set out for the guests before they arrived", "themes": ["mythology"], "relevant": ["book-of-the-dead-cakes", "greek-myths-tantalus"]}
+{"query": "my guest has stayed three weeks and will not leave", "themes": ["mythology"], "relevant": ["poetic-edda-guests-leave"]}
+{"query": "my roommate eavesdrops on all my phone calls", "themes": ["mythology"], "relevant": ["book-of-the-dead-eavesdropping"]}
+{"query": "he took my money and refuses to give it back", "themes": ["fiction"], "relevant": ["ferengi-rule-1"]}
+{"query": "my coworker falsely accused me of stealing his stapler", "themes": ["fiction"], "relevant": ["lilliput-false-accusers"]}
+{"query": "my friend fed his pet after midnight and now it is a monster", "themes": ["fiction"], "relevant": ["gremlins-three-rules"]}
+{"query": "he told everyone about our secret club", "themes": ["fiction"], "relevant": ["fight-club-silence"]}
+{"query": "he built a robot that shoved me down the stairs", "themes": ["fiction"], "relevant": ["asimov-robots-three-laws"]}
+{"query": "he wore a long cape to the party and knocked over every drink", "themes": ["fiction"], "relevant": ["incredibles-no-capes"]}

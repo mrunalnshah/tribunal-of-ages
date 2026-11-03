@@ -1,0 +1,111 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v7
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - name: Type check
+        run: uv run mypy
+      - name: Law library matches the committed corpus (no LLM calls)
+        run: uv run tribunal check
+      - name: Archived verdicts still quote the corpus (no LLM calls)
+        run: uv run tribunal hall-of-fame --check
+      - run: uv run pytest -q
+      - name: Retrieval quality gate (no LLM calls, in-memory index)
+        run: uv run tribunal eval --memory --min-hit 0.6
+
+  deploy-index:
+    needs: test
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2  # this commit and its parent, to see what changed
+      - uses: astral-sh/setup-uv@v7
+      - name: Rebuild the cloud index if the corpus changed
+        env:
+          QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+        run: |
+          if git diff --quiet HEAD^ HEAD -- data/processed/; then
+            echo "Corpus unchanged: the current index stays."
+          else
+            uv sync --locked
+            uv run tribunal index
+          fi
+
+  deploy-api:
+    needs: [test, deploy-index]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write  # publish the image to GitHub's container registry
+      id-token: write  # sign in to Azure with a short-lived token, not a stored password
+    steps:
+      - uses: actions/checkout@v6
+      - name: Name the image (registry names must be lowercase)
+        run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the image and publish it
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE }}:${{ github.sha }},${{ env.IMAGE }}:latest
+          labels: org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max  # unchanged layers, such as the models, are reused
+      - name: Sign in to Azure
+        if: vars.AZURE_APP != ''  # until you add the Azure variables, CI only publishes the image
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Run the new image on Azure Container Apps
+        if: vars.AZURE_APP != ''
+        env:
+          APP: ${{ vars.AZURE_APP }}
+          GROUP: ${{ vars.AZURE_GROUP }}
+        run: |
+          az extension add --name containerapp --upgrade --only-show-errors
+          az containerapp update --name "$APP" --resource-group "$GROUP" \
+            --image "$IMAGE:$GITHUB_SHA" --output none
+
+  deploy-web:
+    needs: test
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v7
+      - name: Shelve the laws for the library
+        run: uv run tribunal shelve
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: frontend
+      - id: deploy
+        uses: actions/deploy-pages@v4

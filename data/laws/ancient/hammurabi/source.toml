@@ -1,0 +1,6 @@
+jurisdiction = "babylon"
+jurisdiction_name = "Babylon"
+source = "Code of Hammurabi, trans. L. W. King"
+source_url = "https://avalon.law.yale.edu/ancient/hamcode.asp"
+license = "Public domain: the translator died in 1919"
+parser = "hammurabi"  # no law files here: parse_hammurabi() splits the page into laws

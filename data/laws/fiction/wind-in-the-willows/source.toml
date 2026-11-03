@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "the-county"
+jurisdiction_name = "The county court"
+source = "Kenneth Grahame, The Wind in the Willows (1908) (paraphrased)"
+source_url = "https://www.gutenberg.org/ebooks/289"
+license = "Public domain; paraphrased in our own words: published in 1908"
+verbatim = false

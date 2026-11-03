@@ -1,0 +1,52 @@
+/* Cartoon: thick outlines, sticker shadows and a cherry-red gavel. Every color, font, border
+   and texture the site uses comes from these tokens, so this file is the whole look. */
+:root[data-skin="cartoon"] {
+  color-scheme: light;
+  --paper: #fff1bf;
+  --surface: #ffffff;
+  --well: #fffbea;
+  --ink: #1d1d1f;
+  --muted: #4a4a52;
+  --accent: #d32f4a;
+  --accent-ink: #ffffff;
+  --line: #1d1d1f;
+  --focus: #2457ff;
+  --line-width: 3px;
+  --radius: 14px;
+  --radius-big: 22px;
+  --shadow: 6px 6px 0 var(--line);
+  --font-display: "Chalkboard SE", "Comic Neue", "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --display-weight: 700;
+  --display-spacing: 0;
+  --texture: radial-gradient(rgb(29 29 31 / 10%) 1.3px, transparent 1.6px) 0 0 / 20px 20px;
+  --stamp: #2457ff;
+  --tilt: -8deg;
+  --series-a: #d32f4a;
+  --series-b: #2457ff;
+  --good: #1e9e4a;
+  --warn: #f2a900;
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-skin="cartoon"] {
+    color-scheme: dark;
+    --paper: #1c1a33;
+    --surface: #282545;
+    --well: #221f3d;
+    --ink: #fdf7e3;
+    --muted: #d6d0ee;
+    --accent: #ff6b81;
+    --accent-ink: #1c1a33;
+    --line: #fdf7e3;
+    --focus: #8fb4ff;
+    --texture: radial-gradient(rgb(253 247 227 / 9%) 1.3px, transparent 1.6px) 0 0 / 20px 20px;
+    --stamp: #8fb4ff;
+    --series-a: #ff6b81;
+    --series-b: #8fb4ff;
+    --good: #5fd38a;
+    --warn: #ffd166;
+  }
+}
+/* A skin may add a few touches of its own beyond the tokens. */
+:root[data-skin="cartoon"] .hero h1 { transform: rotate(-1deg); }
+:root[data-skin="cartoon"] .primary:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--line); }

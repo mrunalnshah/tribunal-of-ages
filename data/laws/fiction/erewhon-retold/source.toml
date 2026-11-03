@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "erewhon"
+jurisdiction_name = "Erewhon"
+source = "Samuel Butler, Erewhon (1872) (paraphrased)"
+source_url = "https://www.gutenberg.org/ebooks/1906"
+license = "Public domain; paraphrased in our own words: published in 1872"
+verbatim = false

@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "olympus"
+jurisdiction_name = "Olympus"
+source = "Greek myths, retold from Hesiod, Homer, Pindar and Ovid (paraphrased)"
+source_url = "https://www.theoi.com/"
+license = "Public domain; paraphrased in our own words: ancient poems in public-domain translations"
+verbatim = false

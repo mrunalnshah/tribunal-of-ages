@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "victorian-england"
+jurisdiction_name = "Victorian England"
+source = "Acts of Parliament, 1824-1872 (paraphrased)"
+source_url = "https://www.legislation.gov.uk/"
+license = "Public domain; paraphrased in our own words: nineteenth-century acts"
+verbatim = false

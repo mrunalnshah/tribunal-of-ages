@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "rome"
+jurisdiction_name = "Rome"
+source = "Rome's laws against luxury, as reported by Livy, Macrobius and Aulus Gellius (paraphrased)"
+source_url = "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Gellius/2*.html"
+license = "Public domain; paraphrased in our own words: ancient sources in public-domain translations"
+verbatim = false

@@ -1,0 +1,22 @@
+# Every theme the court knows, in the order the website shows them.
+# Each theme's law files live in data/laws/<theme id>/. The website ticks themes with default = true.
+
+[ancient]
+name = "Ancient laws"
+description = "Real legal codes from the ancient world, quoted word for word or carefully paraphrased."
+default = true
+
+[mythology]
+name = "Myths and legends"
+description = "Rules and punishments from myth, quoted from public-domain translations."
+default = false
+
+[fiction]
+name = "Fiction"
+description = "Laws from novels, films and series. Modern stories are paraphrased, never quoted."
+default = false
+
+[history]
+name = "History, to 1959"
+description = "Real laws from 1217 to 1959 that sound absurd today, paraphrased from the statutes."
+default = false

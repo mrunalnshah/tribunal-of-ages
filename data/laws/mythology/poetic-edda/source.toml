@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "asgard"
+jurisdiction_name = "Asgard"
+source = "The Poetic Edda, trans. H. A. Bellows (1923) (paraphrased)"
+source_url = "https://www.sacred-texts.com/neu/poe/index.htm"
+license = "Public domain; paraphrased in our own words: Bellows's translation was published in 1923"
+verbatim = false

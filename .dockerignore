@@ -1,0 +1,12 @@
+.venv
+.git
+.cache
+.env
+data/raw
+data/cache
+data/review.csv
+frontend
+tests
+**/__pycache__
+data/records.db
+temp_docs/

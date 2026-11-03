@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "the-jungle"
+jurisdiction_name = "The Jungle"
+source = "Rudyard Kipling, The Law of the Jungle, in The Second Jungle Book (1895) (paraphrased)"
+source_url = "https://www.gutenberg.org/ebooks/1937"
+license = "Public domain; paraphrased in our own words: published in 1895"
+verbatim = false

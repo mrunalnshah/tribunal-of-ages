@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "scotland"
+jurisdiction_name = "Scotland"
+source = "Acts of the Parliament of Scotland, 1457 and 1491 (paraphrased)"
+source_url = "https://www.rps.ac.uk/"
+license = "Public domain; paraphrased in our own words: fifteenth-century acts"
+verbatim = false

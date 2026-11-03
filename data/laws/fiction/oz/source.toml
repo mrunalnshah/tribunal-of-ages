@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "emerald-city"
+jurisdiction_name = "The Emerald City"
+source = "L. Frank Baum, The Wonderful Wizard of Oz (1900) (paraphrased)"
+source_url = "https://www.gutenberg.org/ebooks/55"
+license = "Public domain; paraphrased in our own words: published in 1900"
+verbatim = false

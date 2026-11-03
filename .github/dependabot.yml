@@ -1,0 +1,19 @@
+# Weekly pull requests that keep dependencies up to date. CI tests each one before you merge it.
+version: 2
+updates:
+  - package-ecosystem: "uv"  # pyproject.toml and uv.lock
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7  # skip releases younger than a week: most broken ones are pulled by then
+    groups:
+      python:
+        patterns: ["*"]  # one pull request for all the week's Python updates
+  - package-ecosystem: "github-actions"  # the actions in .github/workflows/
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions:
+        patterns: ["*"]

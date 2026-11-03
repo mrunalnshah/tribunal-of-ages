@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "lilliput"
+jurisdiction_name = "Lilliput"
+source = "Jonathan Swift, Gulliver's Travels (1726), part I (paraphrased)"
+source_url = "https://www.gutenberg.org/ebooks/829"
+license = "Public domain; paraphrased in our own words: published in 1726"
+verbatim = false

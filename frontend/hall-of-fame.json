@@ -1,0 +1,430 @@
+{
+  "cases": [
+    {
+      "case": {
+        "crime": "My roommate ate my leftover pizza from the fridge. Even the crusts.",
+        "outrage": 3,
+        "themes": [
+          "ancient"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Pizza Pilferer",
+          "charge": "Unlawful appropriation of another's edible provisions",
+          "law_id": "salic-LV-2",
+          "sentence": "The Accused is outlawed until a settlement is reached with the Plaintiff, and any party who offers the Accused shelter or sustenance incurs a fine of 15 shillings. The Plaintiff may demand restitution in kind or coin to lift the outlawry.",
+          "remarks": "A middling fury meets a law designed for grave sacrilege; the mismatch is almost comic. By analogy, pilfering pizza is treated like exhuming a corpse—an absurd but fitting parallel for a level‑3 outrage. The Tribunal smiles at the theatricality of the claim.",
+          "historical_note": "Salic law treated grave violations of personal property and burial rites with severe communal sanctions, reflecting a society that prized both kinship bonds and the sanctity of the dead."
+        },
+        "law": {
+          "law_id": "salic-LV-2",
+          "theme": "ancient",
+          "jurisdiction": "franks",
+          "jurisdiction_name": "The Franks",
+          "source": "The Salic Law, trans. E. F. Henderson (1896)",
+          "source_url": "https://avalon.law.yale.edu/medieval/salic.asp",
+          "citation": "Title LV, §2",
+          "text": "If any one shall have dug up and plundered a corpse already buried, and it shall have been proved on him, he shall be outlawed until the day when he comes to an agreement with the relatives of the dead man, and they ask for him that he be allowed to come among men. And whoever, before he come to an arrangement with the relative, shall give him bread or shelter-even if they are his relations or his own wife-shall be sentenced to 600 denars which make xv shillings.",
+          "verbatim": true,
+          "tier": 4
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "My neighbor's cat digs up my tomato plants every single night.",
+        "outrage": 2,
+        "themes": [
+          "ancient"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Feline Gardener",
+          "charge": "Unauthorized nocturnal sabotage of cultivated horticulture",
+          "law_id": "hammurabi-59",
+          "sentence": "The Accused shall pay half a mina in money to the Plaintiff for the damage inflicted upon the tomato garden. The fine is imposed as restitution for the illicit felling of the garden's bounty, albeit by paw rather than axe.",
+          "remarks": "The Plaintiff's irritation is modest (outrage level 2), and the ancient code offers a tier‑1 remedy, a respectable match for such a petty grievance. The Tribunal notes the absurdity of holding a cat to human property law, but justice, even for whiskered offenders, must be served.",
+          "historical_note": "Law 59 shows Babylonian society penalized even minor, unapproved damage to another's garden, reflecting a strong emphasis on protecting agricultural property."
+        },
+        "law": {
+          "law_id": "hammurabi-59",
+          "theme": "ancient",
+          "jurisdiction": "babylon",
+          "jurisdiction_name": "Babylon",
+          "source": "Code of Hammurabi, trans. L. W. King",
+          "source_url": "https://avalon.law.yale.edu/ancient/hamcode.asp",
+          "citation": "Law 59",
+          "text": "If any man, without the knowledge of the owner of a garden, fell a tree in a garden he shall pay half a mina in money.",
+          "verbatim": true,
+          "tier": 1
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "A coworker microwaved fish in the office kitchen. Again.",
+        "outrage": 4,
+        "themes": [
+          "ancient",
+          "fiction"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Microwaved Fish Offender",
+          "charge": "Unlawful emission of pungent odours within a shared workspace, thereby endangering communal olfactory peace",
+          "law_id": "hammurabi-6",
+          "sentence": "By the strict letter of Hammurabi's sixth edict, the Accused is sentenced to death for the egregious act, a penalty ordinarily reserved for temple theft. In this modern analogy, the ultimate sanction is metaphorically applied, meaning immediate termination of employment and banishment from all office kitchen facilities.",
+          "remarks": "The Plaintiff's fury sits at a solid four, a near‑blood‑feud, and the ancient code does not shy from matching that intensity. Though the crime is merely a lingering sushi scent, we invoke the law with a wry grin, noting the absurdity of equating a smelly lunch with sacrilege.",
+          "historical_note": "Hammurabi's code imposed capital punishment for theft, reflecting a society that valued property and divine sanctity above all else."
+        },
+        "law": {
+          "law_id": "hammurabi-6",
+          "theme": "ancient",
+          "jurisdiction": "babylon",
+          "jurisdiction_name": "Babylon",
+          "source": "Code of Hammurabi, trans. L. W. King",
+          "source_url": "https://avalon.law.yale.edu/ancient/hamcode.asp",
+          "citation": "Law 6",
+          "text": "If any one steal the property of a temple or of the court, he shall be put to death, and also the one who receives the stolen thing from him shall be put to death.",
+          "verbatim": true,
+          "tier": 5
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "Someone took my parking spot while I was waiting with my blinker on.",
+        "outrage": 4,
+        "themes": [
+          "ancient"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Accused Spot‑Snatcher",
+          "charge": "Willful usurpation of a duly claimed parking position despite clear indication of intent to occupy",
+          "law_id": "salic-L-3",
+          "sentence": "The Accused shall have his vehicle impounded and his personal effects seized to satisfy the debt. Two‑thirds of the estimated value shall be awarded to the Plaintiff, with the remaining third retained by the local authority as peace money.",
+          "remarks": "A outrage level of four meets a law of tier two, leaving a comedic chasm between fury and feudal fine. The Plaintiff’s impatience is noted, though the ancient code treats it as a broken promise rather than a modern traffic insult.",
+          "historical_note": "Salic law treated breach of promise as property theft, reflecting a society that prized contractual fidelity above all else."
+        },
+        "law": {
+          "law_id": "salic-L-3",
+          "theme": "ancient",
+          "jurisdiction": "franks",
+          "jurisdiction_name": "The Franks",
+          "source": "The Salic Law, trans. E. F. Henderson (1896)",
+          "source_url": "https://avalon.law.yale.edu/medieval/salic.asp",
+          "citation": "Title L, §3",
+          "text": "If any one be unwilling to fulfil his promise in the regular assembly,-then he to whom the promise was made shall go the count of that place, in whose district he lives, and shall take the stalk and shall say: oh count, that man made me a promise to pay, and I have lawfully summoned him before the court according to the Salic law on this matter; I pledge thee myself and my fortune that thou may'st safely seize his property. And he shall state the case to him, and shall tell how much he (the debtor) had agreed to pay. Then the count shall collect suitable bailiffs, and shall go with them to the house of him who made the promise and shall say: thou who art here present pay voluntarily to that man what thou didst promise, and choose any two of those bailiffs who shall appraise that from which thou shalt pay; and make good what thou cost owe, according to a just appraisal. But if ho will not hear, or be absent, then the bailiffs shall take from his property the value of the debt which he owes. And, according to the law, the accuser shall take two thirds of that which the debtor owes, and the count shall collect for himself the other third as peace money; unless the peace money shall have been paid to him before in this same matter.",
+          "verbatim": true,
+          "tier": 2
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "My brother borrowed my phone charger and never gave it back.",
+        "outrage": 2,
+        "themes": [
+          "ancient",
+          "mythology"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Borrowed Charger",
+          "charge": "Failure to honor a pledged repayment of a personal electric device",
+          "law_id": "salic-L-1",
+          "sentence": "The Accused is ordered to pay a fine of fifteen shillings in addition to the value of the charger, as prescribed by Salic Law Title L. The penalty is modest, reflecting the minor nature of the breach.",
+          "remarks": "The Plaintiff’s irritation is noted at level two—mildly miffed, not a blood feud. The court finds the complaint proportionate to the law’s modest sanction, and gently reminds both parties that chargers, like promises, are best returned promptly.",
+          "historical_note": "Salic Law treated personal debts with small monetary penalties, underscoring a society that valued straightforward restitution over severe retribution."
+        },
+        "law": {
+          "law_id": "salic-L-1",
+          "theme": "ancient",
+          "jurisdiction": "franks",
+          "jurisdiction_name": "The Franks",
+          "source": "The Salic Law, trans. E. F. Henderson (1896)",
+          "source_url": "https://avalon.law.yale.edu/medieval/salic.asp",
+          "citation": "Title L, §1",
+          "text": "If any freeman or feet have made to another a promise to pay, then he to whom the promise was made shall, within 40 days or within such term as was agreed when he made the promise, go to the house of that man with witnesses, or with appraisers. And if he (the debtor) be unwilling to make the promised payment, he shall be sentenced to 15 shillings above the debt which he had promised.",
+          "verbatim": true,
+          "tier": 1
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "My roommate left exactly one square of toilet paper on the roll.",
+        "outrage": 3,
+        "themes": [
+          "fiction"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Toilet Paper Bandit",
+          "charge": "Willful deprivation of adequate bathroom provisions through the intentional placement of a solitary sheet of tissue",
+          "law_id": "ferengi-rule-285",
+          "sentence": "By invoking Ferengi Rule 285, the Accused is sentenced to a modest levy of three latinum bars for each square of paper withheld, payable to the Plaintiff. Additionally, the Accused must publicly announce their remorse in the communal lounge for one fortnight.",
+          "remarks": "The Plaintiff’s outrage sits at a respectable three, yet our chosen statute bears no tier to gauge the fury—so we simply apply the rule and smile at the mismatch. A modest penalty seems fitting for a modest grievance, though the gap between melodrama and statute is delightfully wide.",
+          "historical_note": "Ferengi Rule 285 illustrates a mercantile culture where every slight is monetized, reflecting their belief that even goodwill must be compensated."
+        },
+        "law": {
+          "law_id": "ferengi-rule-285",
+          "theme": "fiction",
+          "jurisdiction": "ferenginar",
+          "jurisdiction_name": "Ferenginar",
+          "source": "Star Trek: Deep Space Nine (paraphrased)",
+          "source_url": "",
+          "citation": "Star Trek: Deep Space Nine, the Ferengi Rules of Acquisition",
+          "text": "Rule 285: no good deed ever goes unpunished.",
+          "verbatim": false,
+          "tier": null
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "A man on the train played music out loud for an hour, no headphones.",
+        "outrage": 3,
+        "themes": [
+          "ancient"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Accused (Train Troublemaker)",
+          "charge": "Unlawful auditory disturbance in a public conveyance",
+          "law_id": "salic-XXXIV-2",
+          "sentence": "The Accused is fined 120 denars, the modest penalty prescribed for trampling another's harvest without a road. In this modern guise, the fine serves to silence the offending volume.",
+          "remarks": "A middling outrage of level 3 meets a tier‑1 statute, a gap as wide as the train's aisles. Nonetheless, the law applies by analogy—loud music is the auditory equivalent of a harrow tearing through fields, and the court smiles at the comparison.",
+          "historical_note": "The law reveals a Frankish concern for protecting cultivated land from careless intrusion, even at the cost of a modest fine."
+        },
+        "law": {
+          "law_id": "salic-XXXIV-2",
+          "theme": "ancient",
+          "jurisdiction": "franks",
+          "jurisdiction_name": "The Franks",
+          "source": "The Salic Law, trans. E. F. Henderson (1896)",
+          "source_url": "https://avalon.law.yale.edu/medieval/salic.asp",
+          "citation": "Title XXXIV, §2",
+          "text": "If any one shall have drawn a harrow through another's harvest after it has sprouted, or shall have gone through it with a waggon where there was no road, he shall be sentenced to 120 denars, which make 3 shillings.",
+          "verbatim": true,
+          "tier": 1
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "My friend spoiled the ending of the show I was halfway through.",
+        "outrage": 5,
+        "themes": [
+          "mythology",
+          "fiction"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Spoiler",
+          "charge": "Willful divulgence of a narrative climax to a unsuspecting audience",
+          "law_id": "lilliput-false-accusers",
+          "sentence": "By virtue of Lilliputian statute, the Accused is sentenced to death. The Plaintiff shall be repaid fourfold for the distress inflicted.",
+          "remarks": "A most theatrical grievance, and the Plaintiff’s fury reaches the heavens—yet the law only concerns false accusations, so we must stretch the analogy with a polite wink. Still, the outrage is suitably matched to a capital penalty.",
+          "historical_note": "The law reflects Lilliput's draconian stance on protecting reputation, even at the cost of life."
+        },
+        "law": {
+          "law_id": "lilliput-false-accusers",
+          "theme": "fiction",
+          "jurisdiction": "lilliput",
+          "jurisdiction_name": "Lilliput",
+          "source": "Jonathan Swift, Gulliver's Travels (1726), part I (paraphrased)",
+          "source_url": "https://www.gutenberg.org/ebooks/829",
+          "citation": "Gulliver's Travels, part I, chapter 6",
+          "text": "Whoever falsely accuses another person is put to death, and the innocent party is repaid four times over for the time, danger and trouble it cost them.",
+          "verbatim": false,
+          "tier": 5
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "My colleague presented my idea in the meeting as if it were his own.",
+        "outrage": 4,
+        "themes": [
+          "ancient",
+          "mythology"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Idea Thief",
+          "charge": "Unauthorized appropriation of intellectual contribution presented as one's own",
+          "law_id": "hammurabi-5",
+          "sentence": "The Accused shall be fined twelve times the monetary value of the stolen credit and shall be publicly stripped of any future authority to present original ideas. He shall also be barred from any adjudicative role in matters of intellectual ownership thereafter.",
+          "remarks": "The Plaintiff's fury, a solid 4, meets a tier‑4 sanction, a fittingly proportionate rebuke. Though the ancient code was meant for errant judges, we apply it by analogy—after all, both involve misrepresentation of authority. Let the courtroom echo with the irony of a judge‑like thief being judged by a judge's law.",
+          "historical_note": "Hammurabi's Code imposed severe penalties on officials who erred, reflecting Babylonian emphasis on accountability of those wielding judicial power."
+        },
+        "law": {
+          "law_id": "hammurabi-5",
+          "theme": "ancient",
+          "jurisdiction": "babylon",
+          "jurisdiction_name": "Babylon",
+          "source": "Code of Hammurabi, trans. L. W. King",
+          "source_url": "https://avalon.law.yale.edu/ancient/hamcode.asp",
+          "citation": "Law 5",
+          "text": "If a judge try a case, reach a decision, and present his judgment in writing; if later error shall appear in his decision, and it be through his own fault, then he shall pay twelve times the fine set by him in the case, and he shall be publicly removed from the judge's bench, and never again shall he sit there to render judgement.",
+          "verbatim": true,
+          "tier": 4
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "Someone ate the last cookie and put the empty box back in the cupboard.",
+        "outrage": 2,
+        "themes": [
+          "ancient",
+          "fiction"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Cookie Pilferer",
+          "charge": "Unauthorized consumption of another's final provision and concealment of its absence",
+          "law_id": "salic-XXXIV-3",
+          "sentence": "The Accused is ordered to pay a fine of 600 denars, the prescribed restitution for trespassing upon another's harvest. This sum shall be delivered to the Plaintiff as compensation for the vanished cookie.",
+          "remarks": "The Plaintiff's irritation is mild (outrage level 2), yet the law imposes a modest penalty, matching the petty nature of the grievance. A cookie is, after all, a tiny portion of a harvest, so the ancient statute applies by a thin analogy—wink, wink.",
+          "historical_note": "The Salic law treated even small incursions on a neighbor's produce as a matter for monetary redress, reflecting a society keen on protecting agricultural assets."
+        },
+        "law": {
+          "law_id": "salic-XXXIV-3",
+          "theme": "ancient",
+          "jurisdiction": "franks",
+          "jurisdiction_name": "The Franks",
+          "source": "The Salic Law, trans. E. F. Henderson (1896)",
+          "source_url": "https://avalon.law.yale.edu/medieval/salic.asp",
+          "citation": "Title XXXIV, §3",
+          "text": "If any one shall have gone, where there is no way or path, through another's harvest which has already become thick, he shall be sentenced to 600 denars, which make 15 shillings.",
+          "verbatim": true,
+          "tier": 1
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "My sister wore my favorite sweater without asking and stretched it out.",
+        "outrage": 3,
+        "themes": [
+          "ancient"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Sweater Stretching Accused",
+          "charge": "Unauthorized alteration and deformation of another's personal garment",
+          "law_id": "salic-XXXIV-2",
+          "sentence": "The Accused is ordered to pay a fine of 120 denars (equivalent to 3 shillings) for having metaphorically 'drawn a harrow' through the Plaintiff's sweater, thereby ruining its original form.",
+          "remarks": "The Plaintiff's irritation sits at a respectable three, while the law offers only a modest monetary penalty; the gap is noted with a wry smile. The court acknowledges the analogy, though the garment is far less bountiful than a harvest.",
+          "historical_note": "Salic law's modest fines for agricultural trespass reveal a society keen on protecting communal crops with modest monetary reparations."
+        },
+        "law": {
+          "law_id": "salic-XXXIV-2",
+          "theme": "ancient",
+          "jurisdiction": "franks",
+          "jurisdiction_name": "The Franks",
+          "source": "The Salic Law, trans. E. F. Henderson (1896)",
+          "source_url": "https://avalon.law.yale.edu/medieval/salic.asp",
+          "citation": "Title XXXIV, §2",
+          "text": "If any one shall have drawn a harrow through another's harvest after it has sprouted, or shall have gone through it with a waggon where there was no road, he shall be sentenced to 120 denars, which make 3 shillings.",
+          "verbatim": true,
+          "tier": 1
+        },
+        "meta": {}
+      }
+    },
+    {
+      "case": {
+        "crime": "The neighbors held a karaoke party until 3 a.m. on a work night.",
+        "outrage": 4,
+        "themes": [
+          "ancient",
+          "mythology"
+        ],
+        "jurisdiction": "any"
+      },
+      "ruling": {
+        "kind": "verdict",
+        "message": "",
+        "verdict": {
+          "case_title": "The Plaintiff v. The Karaoke Night Owl",
+          "charge": "Willful disturbance of public peace through nocturnal vocal performance on a workday",
+          "law_id": "salic-XLV-2",
+          "sentence": "The Accused is ordered to pay a fine of 1200 denars (30 shillings), the same penalty prescribed for refusing repeated lawful warnings to vacate a village. Though the offense concerns song rather than settlement, the spirit of repeated admonition is applied.",
+          "remarks": "The Plaintiff’s fury rings at level 4, yet the only available statutes sit at tier 1, leaving a comedic chasm between outrage and remedy. Nonetheless, the court obliges the Accused to the modest fine, a gentle reminder that even midnight crooners must heed their neighbors.",
+          "historical_note": "Salic law’s escalation of warnings before exile reveals a society that prized orderly removal over immediate punishment."
+        },
+        "law": {
+          "law_id": "salic-XLV-2",
+          "theme": "ancient",
+          "jurisdiction": "franks",
+          "jurisdiction_name": "The Franks",
+          "source": "The Salic Law, trans. E. F. Henderson (1896)",
+          "source_url": "https://avalon.law.yale.edu/medieval/salic.asp",
+          "citation": "Title XLV, §2",
+          "text": "But if he shall have presumed to settle in that village in spite of his rejection by one or two men, then some one shall give him warning. And if he be unwilling to go away, he who gives him warning shall give him warning, with witnesses, as follows: I warn thee that thou mayst remain here this next night as the Salic law demands, and I warn thee that within 10 nights thou shalt go forth from this village. After another 10 nights he shall again come to him and warn him again within 10 nights to go away. If he still refuse to go, again 10 nights shall be added to the command, that the number of 30 nights may be full. If he will not go away even then, then he shall summon him to the \"Thing,\" and present his witnesses as to the separate commands to leave. If he who has been warned will not then move away, and no valid reason detains him, and all the above warnings which we have mentioned have been given according to law: then he who gave him warning shall take the mutter into his own hands and request the \"comes\" to go to that place and expel him. And because he would not listen to the law, that man shall relinquish all that he has earned there, and, besides, shall be sentenced to 1200 denars, which make 30 shillings.",
+          "verbatim": true,
+          "tier": 1
+        },
+        "meta": {}
+      }
+    }
+  ]
+}
