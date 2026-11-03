@@ -1,7 +1,7 @@
 [project]
 name = "tribunal"
 version = "0.1.0"
-description = "Add your description here"
+description = "Law of the Land"
 readme = "README.md"
 authors = [
     { name = "Mrunal Nirajkumar Shah", email = "mrunalnshah@protonmail.com" }

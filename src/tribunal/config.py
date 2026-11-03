@@ -62,7 +62,7 @@ class Settings(BaseSettings):
     plan: Literal["free", "paid"] = "free"
     allowed_origins: list[str] = ["http://localhost:5500", "http://127.0.0.1:5500"]
     requests_per_minute: int = 5
-    visitor_daily_limit: int = 3  # cases one visitor may file a day
+    visitor_daily_limit: int = 7  # cases one visitor may file a day
     daily_budget: int | None = None  # cases a day, for everyone
     token_budget: int | None = None  # LLM tokens a day, for everyone
     max_body_bytes: int = 32_768  # a bigger request is refused before it's read
