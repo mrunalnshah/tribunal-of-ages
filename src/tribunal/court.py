@@ -18,8 +18,8 @@ from tribunal.search import Hit, LawIndex, SearchUnavailable
 from tribunal.telemetry import observe, trace_id
 
 ANALYSIS_PROMPT = "analysis_v1"
-VERDICT_PROMPT = "verdict_v2"
-CONTEMPT_PROMPT = "contempt_v2"
+VERDICT_PROMPT = "verdict_v3"
+CONTEMPT_PROMPT = "contempt_v3"
 CONTEMPT_QUERY = (
     "If any one bring before the judges a case that is no case, and waste the time of the court"
 )
