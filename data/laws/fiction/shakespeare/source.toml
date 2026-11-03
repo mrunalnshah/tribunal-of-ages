@@ -1,0 +1,7 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "shakespeares-courts"
+jurisdiction_name = "Shakespeare's courts"
+source = "William Shakespeare's plays (paraphrased)"
+source_url = "https://www.gutenberg.org/ebooks/100"
+license = "Public domain; paraphrased in our own words: written by 1606"
+verbatim = false

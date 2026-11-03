@@ -44,3 +44,11 @@
 {"query": "he told everyone about our secret club", "themes": ["fiction"], "relevant": ["fight-club-silence"]}
 {"query": "he built a robot that shoved me down the stairs", "themes": ["fiction"], "relevant": ["asimov-robots-three-laws"]}
 {"query": "he wore a long cape to the party and knocked over every drink", "themes": ["fiction"], "relevant": ["incredibles-no-capes"]}
+{"query": "my sister keeps sending me photos of her fancy dinners while I eat plain rice in my hostel", "themes": ["ancient"], "relevant": ["lycurgus-common-meals", "roman-sumptuary-lex-fannia", "roman-sumptuary-lex-orchia", "roman-sumptuary-lex-licinia"]}
+{"query": "my sister keeps sending me photos of her fancy dinners while I eat plain rice in my hostel", "themes": ["history"], "relevant": ["england-two-courses"]}
+{"query": "my sister keeps sending me photos of her fancy dinners while I eat plain rice in my hostel", "themes": ["mythology"], "relevant": ["greek-myths-tantalus", "greek-myths-erysichthon", "poetic-edda-gluttony"]}
+{"query": "he brags so much that everyone wants him gone for a while", "themes": ["ancient"], "relevant": ["athenian-constitution-ostracism", "athenian-constitution-aristides"]}
+{"query": "my roommate stole a hundred dollars from my wallet", "themes": ["ancient"], "relevant": ["qing-code-theft"]}
+{"query": "he lost my money gambling at cards", "themes": ["ancient"], "relevant": ["qing-code-gambling"]}
+{"query": "my friend insulted me in front of everyone at dinner", "themes": ["ancient"], "relevant": ["qing-code-insults", "solon-speaking-ill"]}
+{"query": "my two roommates keep fighting and I want them both gone", "themes": ["fiction"], "relevant": ["shakespeare-bolingbroke-and-mowbray"]}

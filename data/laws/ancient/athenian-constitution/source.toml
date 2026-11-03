@@ -1,0 +1,6 @@
+# Every law here is our own short paraphrase of the source below; set verbatim = true only after pasting exact text.
+jurisdiction = "athens"
+jurisdiction_name = "Athens"
+source = "Aristotle, The Athenian Constitution, trans. F. G. Kenyon (1891), and Plutarch, Life of Aristides (paraphrased)"
+license = "Public domain; paraphrased in our own words: ancient texts in translations published by 1914"
+verbatim = false

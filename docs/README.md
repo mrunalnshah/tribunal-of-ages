@@ -1,28 +1,18 @@
----
-title: Tribunal of Ages
-emoji: ⚖️
-colorFrom: blue
-colorTo: yellow
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # ⚖️ Tribunal of Ages
 
 **Bring your pettiest grievance before 4,000 years of law.** A production RAG system that judges
 modern complaints by real ancient law codes, myths and stories, and quotes the law it used,
 word for word.
 
-[![CI](https://github.com/YOUR-GITHUB-USER/tribunal-of-ages/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR-GITHUB-USER/tribunal-of-ages/actions/workflows/ci.yml)
-[![Uptime, 90 days](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYOUR-GITHUB-USER%2Ftribunal-of-ages%2Fstatus%2Fuptime.json&query=%24.summary.uptime_90d&suffix=%25&label=uptime%2C%2090%20days&color=brightgreen)](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/#system)
-[![Cases judged](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2FYOUR-HF-USER-tribunal-of-ages.hf.space%2Fapi%2Fv1%2Fstats&query=%24.ledger.all_time&label=cases%20judged&color=8f1d1d)](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/#system)
+[![CI](https://github.com/mrunalnshah/tribunal-of-ages/actions/workflows/ci.yml/badge.svg)](https://github.com/mrunalnshah/tribunal-of-ages/actions/workflows/ci.yml)
+[![Uptime, 90 days](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmrunalnshah%2Ftribunal-of-ages%2Fstatus%2Fuptime.json&query=%24.summary.uptime_90d&suffix=%25&label=uptime%2C%2090%20days&color=brightgreen)](https://mrunalnshah.github.io/tribunal-of-ages/#system)
+[![Cases judged](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Ftribunal-api.happycliff-260cf674.northcentralus.azurecontainerapps.io%2Fapi%2Fv1%2Fstats&query=%24.ledger.all_time&label=cases%20judged&color=8f1d1d)](https://mrunalnshah.github.io/tribunal-of-ages/#system)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-3776ab)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-**[Try it live](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/)** ·
-[System page](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/#system) ·
-[API docs](https://YOUR-HF-USER-tribunal-of-ages.hf.space/docs) ·
+**[Try it live](https://mrunalnshah.github.io/tribunal-of-ages/)** ·
+[System page](https://mrunalnshah.github.io/tribunal-of-ages/#system) ·
+[API docs](https://tribunal-api.happycliff-260cf674.northcentralus.azurecontainerapps.io/docs) ·
 [Architecture](#architecture) · [Evaluation](#evaluation)
 
 <!-- Add screenshots to docs/images, then uncomment:
@@ -49,7 +39,7 @@ word for word.
 ```mermaid
 flowchart LR
     V["Visitor"] --> W["Website<br/>GitHub Pages"]
-    W -->|"grievance"| A["FastAPI<br/>Hugging Face Space"]
+    W -->|"grievance"| A["FastAPI<br/>Azure Container Apps"]
     A --> G{"Guards<br/>size, rate, budget"}
     G --> T["Tribunal"]
     T -->|"1. analyze"| F["Fast LLM"]
@@ -68,7 +58,7 @@ flowchart LR
 | Part | Runs on | Cost |
 |---|---|---|
 | Website | Plain HTML, CSS and JavaScript on GitHub Pages, two skins, no framework | Free |
-| API | FastAPI and Pydantic, Python 3.13, Docker on a Hugging Face Space | Free |
+| API | FastAPI and Pydantic, Python 3.13, Docker on Azure Container Apps, scaled to zero | Free grant, then student credit |
 | Language models | Groq (gpt-oss-20b and 120b), falling back to Cloudflare Workers AI | Free tiers |
 | Retrieval | Qdrant Cloud with FastEmbed: bge-small dense vectors, BM25, a MiniLM reranker | Free |
 | Database | Neon Postgres: the public record, a private history, a ledger of counts | Free, 1 GB |
@@ -126,7 +116,7 @@ Every figure is measured, with its method and date in [docs/SCORECARD.md](docs/S
 | Quality gates | [fill: tests] tests, mypy, ruff, and a retrieval gate in CI | `uv run pytest` |
 | Free capacity | 150 cases a day on Groq, about 265 with Cloudflare | the System page |
 | Uptime | [fill: percent]% over 90 days, checked every 30 minutes | the System page |
-| Running cost | $0 a month | free tiers throughout |
+| Running cost | $0 a month out of pocket | free tiers, and Azure for Students credit for the API |
 
 ## Run it locally
 
@@ -158,4 +148,4 @@ docs/            privacy, data policy, and the scorecard of measured results
 The law texts are public-domain translations and retellings, from sources listed in
 [docs/DATA_POLICY.md](docs/DATA_POLICY.md). The code is under the [MIT licence](LICENSE).
 
-Built by [fill: your name] · [fill: LinkedIn] · [fill: portfolio]
+Built by Mrunal Nirajkumar Shah · [fill: LinkedIn] · [fill: portfolio]

@@ -48,7 +48,7 @@ guess. An interviewer will ask how you got it.
 
 | Metric | Value | How it's measured | Step | Date |
 |---|---|---|---|---|
-| Sustained requests per second, 0 errors | 194 (500 users) | Locust against the local stack, with the API on 2 CPUs | 15 | 2026-11-02 |
+| Sustained requests per second, 0 errors | 194 (500 users, on 2 CPUs: remeasure on 1) | Locust against the local stack, with the API on 1 CPU like production | 15 | 2026-11-02 |
 | p95 under that load | 380 ms | the same Locust run | 15 | 2026-11-02 |
 | Monthly visits the API can serve | about 25 million (194 × 129,600), not counting verdicts | the formula under Capacity, honestly, in this file | 15 | 2026-11-02 |
 | Verdicts per day on free tiers | | the smaller of DAILY_BUDGET and what the provider limits allow | 16 | |
@@ -76,7 +76,7 @@ guess. An interviewer will ask how you got it.
 
 | Metric | Value | How it's measured | Step | Date |
 |---|---|---|---|---|
-| Hosting cost per month | | the bills: $0 while every service stays on its free tier | 16 | |
+| Hosting cost per month | | Azure's cost analysis for the resource group; the other services are $0 on free tiers | 16 | |
 | Uptime | | the System page's uptime card: checks passed out of all, over 90 days, every 30 minutes | 18 | |
 | Time to recover | | how long each outage issue stayed open | 18 | |
 | Visitors per month | | PostHog's web analytics | 18 | |
@@ -117,7 +117,7 @@ Fill the brackets from the rows above, and cut any line you can't back with a me
   [per day] a day on free LLM tiers with graceful fallback.
 - Shipped with [tests] tests ([coverage] coverage), mypy-checked code, a [minutes]-minute
   CI/CD pipeline, and uptime checks every 30 minutes ([uptime] over 90 days, public history), at
-  $0 a month.
+  $0 a month out of pocket.
 - Published every verdict to a public record with a notice, removal keys and report-to-hide
   moderation, while traces keep no content and decrees are drawn in the browser; Lighthouse
   accessibility [score].

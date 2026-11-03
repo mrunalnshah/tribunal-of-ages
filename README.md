@@ -4,15 +4,15 @@
 modern complaints by real ancient law codes, myths and stories, and quotes the law it used,
 word for word.
 
-[![CI](https://github.com/YOUR-GITHUB-USER/tribunal-of-ages/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR-GITHUB-USER/tribunal-of-ages/actions/workflows/ci.yml)
-[![Uptime, 90 days](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYOUR-GITHUB-USER%2Ftribunal-of-ages%2Fstatus%2Fuptime.json&query=%24.summary.uptime_90d&suffix=%25&label=uptime%2C%2090%20days&color=brightgreen)](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/#system)
-[![Cases judged](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2FYOUR-API-ADDRESS%2Fapi%2Fv1%2Fstats&query=%24.ledger.all_time&label=cases%20judged&color=8f1d1d)](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/#system)
+[![CI](https://github.com/mrunalnshah/tribunal-of-ages/actions/workflows/ci.yml/badge.svg)](https://github.com/mrunalnshah/tribunal-of-ages/actions/workflows/ci.yml)
+[![Uptime, 90 days](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmrunalnshah%2Ftribunal-of-ages%2Fstatus%2Fuptime.json&query=%24.summary.uptime_90d&suffix=%25&label=uptime%2C%2090%20days&color=brightgreen)](https://mrunalnshah.github.io/tribunal-of-ages/#system)
+[![Cases judged](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Ftribunal-api.happycliff-260cf674.northcentralus.azurecontainerapps.io%2Fapi%2Fv1%2Fstats&query=%24.ledger.all_time&label=cases%20judged&color=8f1d1d)](https://mrunalnshah.github.io/tribunal-of-ages/#system)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-3776ab)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-**[Try it live](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/)** ·
-[System page](https://YOUR-GITHUB-USER.github.io/tribunal-of-ages/#system) ·
-[API docs](https://YOUR-API-ADDRESS/docs) ·
+**[Try it live](https://mrunalnshah.github.io/tribunal-of-ages/)** ·
+[System page](https://mrunalnshah.github.io/tribunal-of-ages/#system) ·
+[API docs](https://tribunal-api.happycliff-260cf674.northcentralus.azurecontainerapps.io/docs) ·
 [Architecture](#architecture) · [Evaluation](#evaluation)
 
 <!-- Add screenshots to docs/images, then uncomment:
@@ -106,13 +106,13 @@ Every figure is measured, with its method and date in [docs/SCORECARD.md](docs/S
 
 | What | Result | How it's measured |
 |---|---|---|
-| Corpus | [fill: laws] laws from [fill: sources] sources, in 3 themes | `uv run tribunal check` |
-| Retrieval, Hit@5 | [fill: dense only] dense only, [fill: hybrid] with hybrid search and reranking | `uv run tribunal eval` |
-| Retrieval, MRR | [fill: MRR] | `uv run tribunal eval` |
-| Verdicts | [fill: passed] of [fill: total] cases pass, including contempt and declines | `uv run tribunal eval --verdicts` |
+| Corpus | 552 laws from 72 sources, in 4 themes | `uv run tribunal check` |
+| Retrieval, Hit@5 | 0.76 dense only, 0.80 with hybrid search and reranking | `uv run tribunal eval` |
+| Retrieval, MRR | 0.75 with reranking (0.66 dense only) | `uv run tribunal eval` |
+| Verdicts | 12 of 14 cases pass, including contempt and declines | `uv run tribunal eval --verdicts` |
 | Search speed | p50 [fill: ms] ms, p95 [fill: ms] ms | `uv run tribunal bench` |
 | Verdict speed | p50 [fill: s] s, p95 [fill: s] s, end to end | `uv run tribunal bench --verdicts` |
-| Load | [fill: requests a second] requests a second at p95 [fill: ms] ms, no errors, 2 vCPUs | `scripts/loadtest.py` |
+| Load | 194 requests a second at p95 380 ms, no errors, 2 vCPUs | `scripts/loadtest.py` |
 | Quality gates | [fill: tests] tests, mypy, ruff, and a retrieval gate in CI | `uv run pytest` |
 | Free capacity | 150 cases a day on Groq, about 265 with Cloudflare | the System page |
 | Uptime | [fill: percent]% over 90 days, checked every 30 minutes | the System page |
@@ -148,4 +148,4 @@ docs/            privacy, data policy, and the scorecard of measured results
 The law texts are public-domain translations and retellings, from sources listed in
 [docs/DATA_POLICY.md](docs/DATA_POLICY.md). The code is under the [MIT licence](LICENSE).
 
-Built by [fill: your name] · [fill: LinkedIn] · [fill: portfolio]
+Built by Mrunal Nirajkumar Shah · [fill: LinkedIn] · [fill: portfolio]
