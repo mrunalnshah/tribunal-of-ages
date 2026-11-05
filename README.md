@@ -110,12 +110,12 @@ Every figure is measured, with its method and date in [docs/SCORECARD.md](docs/S
 | Retrieval, Hit@5 | 0.76 dense only, 0.80 with hybrid search and reranking | `uv run tribunal eval` |
 | Retrieval, MRR | 0.75 with reranking (0.66 dense only) | `uv run tribunal eval` |
 | Verdicts | 12 of 14 cases pass, including contempt and declines | `uv run tribunal eval --verdicts` |
-| Search speed | p50 [fill: ms] ms, p95 [fill: ms] ms | `uv run tribunal bench` |
-| Verdict speed | p50 [fill: s] s, p95 [fill: s] s, end to end | `uv run tribunal bench --verdicts` |
+| Search speed | p50 {PENDING} ms, p95 {PENDING} ms | `uv run tribunal bench` |
+| Verdict speed | p50 {PENDING} s, p95 {PENDING} s, end to end | `uv run tribunal bench --verdicts` |
 | Load | 194 requests a second at p95 380 ms, no errors, 2 vCPUs | `scripts/loadtest.py` |
-| Quality gates | [fill: tests] tests, mypy, ruff, and a retrieval gate in CI | `uv run pytest` |
+| Quality gates | {PENDING} tests, mypy, ruff, and a retrieval gate in CI | `uv run pytest` |
 | Free capacity | 150 cases a day on Groq, about 265 with Cloudflare | the System page |
-| Uptime | [fill: percent]% over 90 days, checked every 30 minutes | the System page |
+| Uptime | {PENDING} over 90 days, checked every 30 minutes | the System page |
 | Running cost | $0 a month out of pocket | free tiers, and Azure for Students credit for the API |
 
 ## Run it locally
