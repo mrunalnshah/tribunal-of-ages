@@ -148,4 +148,4 @@ docs/            privacy, data policy, and the scorecard of measured results
 The law texts are public-domain translations and retellings, from sources listed in
 [docs/DATA_POLICY.md](docs/DATA_POLICY.md). The code is under the [MIT licence](LICENSE).
 
-Built by Mrunal Nirajkumar Shah · [fill: LinkedIn] · [fill: portfolio]
+Built by Mrunal Nirajkumar Shah
