@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
       - run: uv sync --locked
       - run: uv run ruff check .
@@ -28,7 +28,7 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2  # this commit and its parent, to see what changed
       - uses: astral-sh/setup-uv@v7
@@ -53,7 +53,7 @@ jobs:
       packages: write  # publish the image to GitHub's container registry
       id-token: write  # sign in to Azure with a short-lived token, not a stored password
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Name the image (registry names must be lowercase)
         run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
       - uses: docker/setup-buildx-action@v4
@@ -99,13 +99,13 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
       - name: Shelve the laws for the library
         run: uv run tribunal shelve
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: frontend
       - id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
