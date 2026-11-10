@@ -13,8 +13,8 @@ dependencies = [
     "html5lib>=1.1",
     "httpx>=0.28.1",
     "langfuse>=5.1.0",
-    "openai>=3.42.0",
-    "psycopg[binary]>=3.3.6",
+    "openai>=3.42.1",
+    "psycopg[binary]>=3.3.7",
     "pydantic-settings>=2.16.2",
     "python-dotenv>=1.2.4",
     "qdrant-client[fastembed]>=1.20.0",
@@ -37,7 +37,7 @@ known-first-party = ["tribunal"]
 testpaths = ["tests"]
 
 [build-system]
-requires = ["uv_build>=0.12.23,<0.13.0"]
+requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
